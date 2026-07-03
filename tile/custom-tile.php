@@ -1,7 +1,7 @@
 <?php
 if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
-class Disciple_Tools_Plugin_Starter_Template_Tile
+class Dt_Story_Sets_Tile
 {
     private static $_instance = null;
     public static function instance(){
@@ -28,9 +28,9 @@ class Disciple_Tools_Plugin_Starter_Template_Tile
      * @return mixed
      */
     public function dt_details_additional_tiles( $tiles, $post_type = '' ) {
-        if ( $post_type === 'contacts' || $post_type === 'starter_post_type' ){
-            $tiles['disciple_tools_plugin_starter_template'] = [ 'label' => __( 'Plugin Starter Template', 'disciple-tools-plugin-starter-template' ) ];
-            $tiles['a_beautiful_tile'] = [ 'label' => __( 'A Beautiful Tile', 'disciple-tools-plugin-starter-template' ) ];
+        if ( $post_type === 'contacts' || $post_type === 'dt_story_sets_post_type' ){
+            $tiles['dt_story_sets'] = [ 'label' => __( 'Dt Story Sets', 'dt-story-sets' ) ];
+            $tiles['a_beautiful_tile'] = [ 'label' => __( 'A Beautiful Tile', 'dt-story-sets' ) ];
         }
         return $tiles;
     }
@@ -44,7 +44,7 @@ class Disciple_Tools_Plugin_Starter_Template_Tile
         /**
          * @todo set the post type
          */
-        if ( $post_type === 'contacts' || $post_type === 'starter_post_type' ){
+        if ( $post_type === 'contacts' || $post_type === 'dt_story_sets_post_type' ){
             /**
              * @todo Add the fields that you want to include in your tile.
              *
@@ -59,26 +59,26 @@ class Disciple_Tools_Plugin_Starter_Template_Tile
             /**
              * This is an example of a text field
              */
-            $fields['disciple_tools_plugin_starter_template_text'] = [
-                'name'        => __( 'Text', 'disciple-tools-plugin-starter-template' ),
-                'description' => _x( 'Text', 'Optional Documentation', 'disciple-tools-plugin-starter-template' ),
+            $fields['dt_story_sets_text'] = [
+                'name'        => __( 'Text', 'dt-story-sets' ),
+                'description' => _x( 'Text', 'Optional Documentation', 'dt-story-sets' ),
                 'type'        => 'text',
                 'default'     => '',
-                'tile' => 'disciple_tools_plugin_starter_template',
+                'tile' => 'dt_story_sets',
                 'icon' => get_template_directory_uri() . '/dt-assets/images/edit.svg',
             ];
             /**
              * This is an example of a multiselect field
              */
-            $fields['disciple_tools_plugin_starter_template_multiselect'] = [
-                'name' => __( 'Multiselect', 'disciple-tools-plugin-starter-template' ),
+            $fields['dt_story_sets_multiselect'] = [
+                'name' => __( 'Multiselect', 'dt-story-sets' ),
                 'default' => [
-                    'one' => [ 'label' => __( 'One', 'disciple-tools-plugin-starter-template' ) ],
-                    'two' => [ 'label' => __( 'Two', 'disciple-tools-plugin-starter-template' ) ],
-                    'three' => [ 'label' => __( 'Three', 'disciple-tools-plugin-starter-template' ) ],
-                    'four' => [ 'label' => __( 'Four', 'disciple-tools-plugin-starter-template' ) ],
+                    'one' => [ 'label' => __( 'One', 'dt-story-sets' ) ],
+                    'two' => [ 'label' => __( 'Two', 'dt-story-sets' ) ],
+                    'three' => [ 'label' => __( 'Three', 'dt-story-sets' ) ],
+                    'four' => [ 'label' => __( 'Four', 'dt-story-sets' ) ],
                 ],
-                'tile' => 'disciple_tools_plugin_starter_template',
+                'tile' => 'dt_story_sets',
                 'type' => 'multi_select',
                 'hidden' => false,
                 'icon' => get_template_directory_uri() . '/dt-assets/images/edit.svg',
@@ -86,24 +86,24 @@ class Disciple_Tools_Plugin_Starter_Template_Tile
             /**
              * This is an example of a key select field
              */
-            $fields['disciple_tools_plugin_starter_template_keyselect'] = [
+            $fields['dt_story_sets_keyselect'] = [
                 'name' => 'Key Select',
                 'type' => 'key_select',
-                'tile' => 'disciple_tools_plugin_starter_template',
+                'tile' => 'dt_story_sets',
                 'default' => [
                     'first'   => [
-                        'label' => _x( 'First', 'Key Select Label', 'disciple-tools-plugin-starter-template' ),
-                        'description' => _x( 'First Key Description', 'Training Status field description', 'disciple-tools-plugin-starter-template' ),
+                        'label' => _x( 'First', 'Key Select Label', 'dt-story-sets' ),
+                        'description' => _x( 'First Key Description', 'Training Status field description', 'dt-story-sets' ),
                         'color' => '#ff9800'
                     ],
                     'second'   => [
-                        'label' => _x( 'Second', 'Key Select Label', 'disciple-tools-plugin-starter-template' ),
-                        'description' => _x( 'Second Key Description', 'Training Status field description', 'disciple-tools-plugin-starter-template' ),
+                        'label' => _x( 'Second', 'Key Select Label', 'dt-story-sets' ),
+                        'description' => _x( 'Second Key Description', 'Training Status field description', 'dt-story-sets' ),
                         'color' => '#4CAF50'
                     ],
                     'third'   => [
-                        'label' => _x( 'Third', 'Key Select Label', 'disciple-tools-plugin-starter-template' ),
-                        'description' => _x( 'Third Key Description', 'Training Status field description', 'disciple-tools-plugin-starter-template' ),
+                        'label' => _x( 'Third', 'Key Select Label', 'dt-story-sets' ),
+                        'description' => _x( 'Third Key Description', 'Training Status field description', 'dt-story-sets' ),
                         'color' => '#366184'
                     ],
                 ],
@@ -114,14 +114,14 @@ class Disciple_Tools_Plugin_Starter_Template_Tile
 
             //test fields
             $fields['number_test'] = [
-                'name'        => __( 'Number field', 'disciple-tools-plugin-starter-template' ),
+                'name'        => __( 'Number field', 'dt-story-sets' ),
                 'type'        => 'number',
                 'default'     => 0,
                 'tile'        => 'a_beautiful_tile',
                 'min_option'  => '5',
             ];
             $fields['number_test_private'] = [
-                'name'        => __( 'Number field private', 'disciple-tools-plugin-starter-template' ),
+                'name'        => __( 'Number field private', 'dt-story-sets' ),
                 'type'        => 'number',
                 'default'     => 0,
                 'tile'        => 'a_beautiful_tile',
@@ -129,32 +129,32 @@ class Disciple_Tools_Plugin_Starter_Template_Tile
                 'max_option'  => '200',
             ];
             $fields['text_test'] = [
-                'name'        => __( 'Text', 'disciple-tools-plugin-starter-template' ),
+                'name'        => __( 'Text', 'dt-story-sets' ),
                 'type'        => 'text',
                 'default'     => 0,
                 'tile'      => 'a_beautiful_tile',
             ];
             $fields['text_test_private'] = [
-                'name'        => __( 'Text', 'disciple-tools-plugin-starter-template' ),
+                'name'        => __( 'Text', 'dt-story-sets' ),
                 'type'        => 'text',
                 'default'     => 0,
                 'tile'      => 'a_beautiful_tile',
                 'private'   => true
             ];
             $fields['contact_communication_channel_test'] = [
-                'name'        => __( 'Communication Channel', 'disciple-tools-plugin-starter-template' ),
+                'name'        => __( 'Communication Channel', 'dt-story-sets' ),
                 'type'        => 'communication_channel',
                 'default'     => 0,
                 'tile'      => 'a_beautiful_tile',
             ];
 
             $fields['user_select_test'] = [
-                'name'        => __( 'User Select', 'disciple-tools-plugin-starter-template' ),
+                'name'        => __( 'User Select', 'dt-story-sets' ),
                 'type'        => 'user_select',
                 'tile'        => 'a_beautiful_tile'
             ];
             $fields['array_test'] = [
-                'name'        => __( 'Array', 'disciple-tools-plugin-starter-template' ),
+                'name'        => __( 'Array', 'dt-story-sets' ),
                 'type'        => 'array',
                 'tile'        => 'a_beautiful_tile'
             ];
@@ -164,14 +164,14 @@ class Disciple_Tools_Plugin_Starter_Template_Tile
                 'tile' => 'a_beautiful_tile'
             ];
             $fields['date_test'] = [
-                'name'        => __( ' Date Field', 'disciple-tools-plugin-starter-template' ),
+                'name'        => __( ' Date Field', 'dt-story-sets' ),
                 'description' => '',
                 'type'        => 'date',
                 'default'     => '',
                 'tile' => 'a_beautiful_tile'
             ];
             $fields['date_test_private'] = [
-                'name'        => __( ' Date Field', 'disciple-tools-plugin-starter-template' ),
+                'name'        => __( ' Date Field', 'dt-story-sets' ),
                 'description' => '',
                 'type'        => 'date',
                 'default'     => '',
@@ -179,12 +179,12 @@ class Disciple_Tools_Plugin_Starter_Template_Tile
                 'private'   => true
             ];
             $fields['boolean_test'] = [
-                'name'        => __( 'Boolean', 'disciple-tools-plugin-starter-template' ),
+                'name'        => __( 'Boolean', 'dt-story-sets' ),
                 'type'        => 'boolean',
                 'default'     => false,
             ];
             $fields['boolean_test_private'] = [
-                'name'        => __( 'Boolean', 'disciple-tools-plugin-starter-template' ),
+                'name'        => __( 'Boolean', 'dt-story-sets' ),
                 'type'        => 'boolean',
                 'default'     => false,
                 'private'   => true
@@ -272,7 +272,7 @@ class Disciple_Tools_Plugin_Starter_Template_Tile
         /**
          * @todo set the post type and the section key that you created in the dt_details_additional_tiles() function
          */
-        if ( ( $post_type === 'contacts' || $post_type === 'starter_post_type' ) && $section === 'disciple_tools_plugin_starter_template' ){
+        if ( ( $post_type === 'contacts' || $post_type === 'dt_story_sets_post_type' ) && $section === 'dt_story_sets' ){
             /**
              * These are two sets of key data:
              * $this_post is the details for this specific post
@@ -297,4 +297,4 @@ class Disciple_Tools_Plugin_Starter_Template_Tile
         <?php }
     }
 }
-Disciple_Tools_Plugin_Starter_Template_Tile::instance();
+Dt_Story_Sets_Tile::instance();

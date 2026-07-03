@@ -1,7 +1,7 @@
-find ./ -type f -print0 | xargs -0 perl -pi -e 's/Disciple_Tools_Plugin_Starter_Template/Disciple_Tools_Plugin_Starter_Template/g';
-find ./ -type f -print0 | xargs -0 perl -pi -e 's/disciple_tools_plugin_starter_template/disciple_tools_plugin_starter_template/g';
-find ./ -type f -print0 | xargs -0 perl -pi -e 's/disciple-tools-plugin-starter-template/disciple-tools-plugin-starter-template/g';
-find ./ -type f -print0 | xargs -0 perl -pi -e 's/starter_post_type/starter_post_type/g';
-find ./ -type f -print0 | xargs -0 perl -pi -e 's/Plugin Starter Template/Plugin Starter Template/g';
-mv disciple-tools-plugin-starter-template.php disciple-tools-plugin-starter-template.php
+find ./ -type f -print0 | xargs -0 perl -pi -e 's/Dt_Story_Sets/Dt_Story_Sets/g';
+find ./ -type f -print0 | xargs -0 perl -pi -e 's/dt_story_sets/dt_story_sets/g';
+find ./ -type f -print0 | xargs -0 perl -pi -e 's/dt-story-sets/dt-story-sets/g';
+find ./ -type f -print0 | xargs -0 perl -pi -e 's/dt_story_sets_post_type/dt_story_sets_post_type/g';
+find ./ -type f -print0 | xargs -0 perl -pi -e 's/Dt Story Sets/Dt Story Sets/g';
+mv dt-story-sets.php dt-story-sets.php
 rm .rename.sh
