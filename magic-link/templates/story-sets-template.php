@@ -5,29 +5,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_filter('dt_magic_link_template_types', function( $types ) {
     $types['contacts'][] = [
-        'value' => 'starter-template',
-        'text' => 'Starter Template',
+        'value' => 'story-sets-template',
+        'text' => 'Story Sets Template',
     ];
     $types['default-options'][] = [
-        'value' => 'starter-template',
-        'text' => 'Starter Template',
+        'value' => 'story-sets-template',
+        'text' => 'Story Sets Template',
     ];
     return $types;
 });
 
 add_action('dt_magic_link_template_load', function ( $template ) {
-    if ( isset( $template['type'] ) && $template['type'] === 'starter-template' ) {
-        new Disciple_Tools_Magic_Links_Template_Starter_Template( $template );
+    if ( isset( $template['type'] ) && $template['type'] === 'story-sets-template' ) {
+        new Disciple_Tools_Magic_Links_Template_Story_Sets_Template( $template );
     }
 } );
 
 /**
  * Class Disciple_Tools_Magic_Links_Templates
  */
-class Disciple_Tools_Magic_Links_Template_Starter_Template extends DT_Magic_Url_Base {
+class Disciple_Tools_Magic_Links_Template_Story_Sets_Template extends DT_Magic_Url_Base {
 
-    protected $template_type = 'starter-template';
-    public $page_title = 'Starter Template';
+    protected $template_type = 'story-sets-template';
+    public $page_title = 'Story Sets Template';
     public $page_description = 'Edit all connections to a given post';
     public $root = 'templates'; // @todo define the root of the url {yoursite}/root/type/key/action
     public $type = 'template_id'; // Placeholder to be replaced with actual template ids

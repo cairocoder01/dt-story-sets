@@ -17,9 +17,9 @@ class Dt_Story_Sets_Magic_Home_App extends DT_Magic_Url_Base
     public $magic = false;
     public $parts = false;
     public $page_title = 'Title';
-    public $root = 'starter_app';
+    public $root = 'story_sets_app';
     public $type = 'home';
-    public static $token = 'starter_app_home';
+    public static $token = 'story_sets_app_home';
 
     private static $_instance = null;
     public static function instance() {
