@@ -15,9 +15,9 @@ on how to do that differ greatly or even if we share similar values our stages i
 we know we can't create everything everyone needs.
 
 Instead of waiting for us, you can run ahead on your own. This
-plugin includes all our best practices and starter codes for the most commonly developed extensions.
+plugin includes all our best practices and story-set codes for the most commonly developed extensions.
 
-We have included starter code for a new post-type, a new REST API endpoint, a new admin page, or a new metrics chart.
+We have included story-set code for a new post-type, a new REST API endpoint, a new admin page, or a new metrics chart.
 The template also provides code quality and code style tools, Github Actions integration, multi-language support, activation and
 deactivation functions, and more. In truth it's likely more than your project needs, so we'll
 guide you through removing the elements your project does not need.)
@@ -36,7 +36,7 @@ __This plugin is for developers__ who want to extend the Disciple.Tools system f
 
 #### Components
 
- 1. Sample admin menu and admin page with starter tabs component.
+ 1. Sample admin menu and admin page with story-set tabs component.
  1. Sample post-type class and hooks.
  1. Sample metrics chart, javascript, and REST api.
  1. Sample REST api.

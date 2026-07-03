@@ -13,9 +13,9 @@ class Dt_Story_Sets_Base extends DT_Module_Base {
      * @var string
      */
     public $post_type = 'dt_story_sets_post_type';
-    public $module = 'starter_base';
-    public $single_name = 'Starter';
-    public $plural_name = 'Starters';
+    public $module = 'story_set_base';
+    public $single_name = 'Story Set';
+    public $plural_name = 'Story Sets';
     public static function post_type(){
         return 'dt_story_sets_post_type';
     }
@@ -59,8 +59,8 @@ class Dt_Story_Sets_Base extends DT_Module_Base {
     }
 
     public function after_setup_theme(){
-        $this->single_name = __( 'Starter', 'dt-story-sets' );
-        $this->plural_name = __( 'Starters', 'dt-story-sets' );
+        $this->single_name = __( 'Story Set', 'dt-story-sets' );
+        $this->plural_name = __( 'Story Sets', 'dt-story-sets' );
 
         if ( class_exists( 'Disciple_Tools_Post_Type_Template' ) ) {
             new Disciple_Tools_Post_Type_Template( $this->post_type, $this->single_name, $this->plural_name );
@@ -75,8 +75,8 @@ class Dt_Story_Sets_Base extends DT_Module_Base {
      */
     public function dt_get_post_type_settings( $settings, $post_type ){
         if ( $post_type === $this->post_type ){
-            $settings['label_singular'] = __( 'Starter', 'dt-story-sets' );
-            $settings['label_plural'] = __( 'Starters', 'dt-story-sets' );
+            $settings['label_singular'] = __( 'Story Set', 'dt-story-sets' );
+            $settings['label_plural'] = __( 'Story Sets', 'dt-story-sets' );
         }
         return $settings;
     }
@@ -88,10 +88,10 @@ class Dt_Story_Sets_Base extends DT_Module_Base {
      */
     public function dt_set_roles_and_permissions( $expected_roles ){
 
-        if ( !isset( $expected_roles['my_starter_role'] ) ){
-            $expected_roles['my_starter_role'] = [
+        if ( !isset( $expected_roles['my_story_set_role'] ) ){
+            $expected_roles['my_story_set_role'] = [
 
-                'label' => __( 'My Starter Role', 'dt-story-sets' ),
+                'label' => __( 'My Story Set Role', 'dt-story-sets' ),
                 'description' => 'Does something Cool',
                 'permissions' => [
                     'access_contacts' => true,

@@ -9,10 +9,10 @@ class Dt_Story_Sets_Magic_Link extends DT_Magic_Url_Base {
 
     public $magic = false;
     public $parts = false;
-    public $page_title = 'Starter - Magic Links - Post Type';
+    public $page_title = 'Story Set - Magic Links - Post Type';
     public $page_description = 'Post Type - Magic Links.';
-    public $root = 'starter_magic_app'; // @todo define the root of the url {yoursite}/root/type/key/action
-    public $type = 'starter_magic_type'; // @todo define the type
+    public $root = 'story-set_magic_app'; // @todo define the root of the url {yoursite}/root/type/key/action
+    public $type = 'story-set_magic_type'; // @todo define the type
     public $post_type = 'dt_story_sets_post_type'; // @todo set the post type this magic link connects with.
     private $meta_key = '';
     public $show_bulk_send = false;
@@ -127,7 +127,7 @@ class Dt_Story_Sets_Magic_Link extends DT_Magic_Url_Base {
      */
     public function dt_details_additional_tiles( $tiles, $post_type = '' ) {
         if ( $post_type === $this->post_type ){
-            $tiles['dt_starters_magic_url'] = [
+            $tiles['dt_story-sets_magic_url'] = [
                 'label' => __( 'Magic Url', 'dt-story-sets' ),
                 'description' => 'The Magic URL sets up a page accessible without authentication, only the link is needed. Useful for small applications liked to this record, like quick surveys or updates.'
             ];
@@ -137,7 +137,7 @@ class Dt_Story_Sets_Magic_Link extends DT_Magic_Url_Base {
     public function dt_details_additional_section( $section, $post_type ) {
         // test if campaigns post type and campaigns_app_module enabled
         if ( $post_type === $this->post_type ) {
-            if ( 'dt_starters_magic_url' === $section ) {
+            if ( 'dt_story-sets_magic_url' === $section ) {
                 $link = DT_Magic_URL::get_link_url_for_post( $post_type, get_the_ID(), $this->root, $this->type )
                 ?>
                 <p>See help <img class="dt-icon" src="<?php echo esc_html( get_template_directory_uri() . '/dt-assets/images/help.svg' ) ?>"/> for description.</p>

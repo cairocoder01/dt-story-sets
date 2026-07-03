@@ -7,10 +7,10 @@ if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
  */
 class Dt_Story_Sets_Magic_User_App extends DT_Magic_Url_Base {
 
-    public $page_title = 'Starter - Magic Links - User App';
+    public $page_title = 'Story Set - Magic Links - User App';
     public $page_description = 'User App - Magic Links.';
-    public $root = 'starter_magic_app'; // @todo define the root of the url {yoursite}/root/type/key/action
-    public $type = 'starter_user_app'; // @todo define the type
+    public $root = 'story-set_magic_app'; // @todo define the root of the url {yoursite}/root/type/key/action
+    public $type = 'story-set_user_app'; // @todo define the type
     public $post_type = 'user';
     private $meta_key = '';
     public $show_bulk_send = false;

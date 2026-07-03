@@ -99,14 +99,14 @@ class Dt_Story_Sets {
          * To remove: delete this following line and remove the folder named /rest-api
          */
         if ( $is_rest && strpos( dt_get_url_path(), 'dt-story-sets' ) !== false ) {
-            require_once( 'rest-api/rest-api.php' ); // adds starter rest api class
+            require_once( 'rest-api/rest-api.php' ); // adds story-set rest api class
         }
 
         /**
          * @todo Decide if you want to create a new post type
          * To remove: delete the line below and remove the folder named /post-type
          */
-        require_once( 'post-type/loader.php' ); // add starter post type extension to Disciple.Tools system
+        require_once( 'post-type/loader.php' ); // add story-set post type extension to Disciple.Tools system
 
         /**
          * @todo Decide if you want to create a custom site-to-site link
@@ -148,7 +148,7 @@ class Dt_Story_Sets {
          * To remove: delete the 3 lines below and remove the folder named /admin
          */
         if ( is_admin() ) {
-            require_once( 'admin/admin-menu-and-tabs.php' ); // adds starter admin page and section for plugin
+            require_once( 'admin/admin-menu-and-tabs.php' ); // adds story-set admin page and section for plugin
         }
 
         /**
@@ -343,7 +343,7 @@ if ( !function_exists( 'dt_hook_ajax_notice_handler' ) ){
  * anywhere as long as it is publicly accessible. You can download the version file listed below and use it as
  * a template.
  * Also, see the instructions for version updating to understand the steps involved.
- * @see https://github.com/DiscipleTools/disciple-tools-version-control/wiki/How-to-Update-the-Starter-Plugin
+ * @see https://github.com/DiscipleTools/disciple-tools-version-control/wiki/How-to-Update-the-Story Set-Plugin
  */
 add_action( 'plugins_loaded', function (){
     if ( ( is_admin() || wp_doing_cron() ) && !( is_multisite() && class_exists( 'DT_Multisite' ) ) ){

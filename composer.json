@@ -1,4 +1,13 @@
 {
+    "name": "cairocoder01/dt-story-sets",
+    "description": "Disciple.Tools Story Sets",
+    "type": "wordpress-plugin",
+    "authors": [
+        {
+            "name": "cairocoder01",
+            "email": ""
+        }
+    ],
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "1.*",
         "wp-coding-standards/wpcs": "3.1.*"

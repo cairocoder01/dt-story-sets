@@ -15,16 +15,16 @@ if ( ! class_exists( 'DT_Module_Base' ) ) {
 add_filter( 'dt_post_type_modules', function( $modules ){
 
     /**
-     * @todo Update the starter in the array below 'starter_base'. Follow the pattern.
-     * @todo Add more modules by adding a new array element. i.e. 'starter_base_two'.
+     * @todo Update the story-set in the array below 'story_set_base'. Follow the pattern.
+     * @todo Add more modules by adding a new array element. i.e. 'story_set_base_two'.
      */
-    $modules['starter_base'] = [
-        'name' => __( 'Starter', 'dt-story-sets' ),
+    $modules['story_set_base'] = [
+        'name' => __( 'Story Set', 'dt-story-sets' ),
         'enabled' => true,
         'locked' => true,
         'prerequisites' => [ 'contacts_base' ],
         'post_type' => 'dt_story_sets_post_type',
-        'description' => __( 'Default starter functionality', 'dt-story-sets' )
+        'description' => __( 'Default story-set functionality', 'dt-story-sets' )
     ];
 
     return $modules;

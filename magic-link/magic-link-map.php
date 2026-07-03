@@ -2,7 +2,7 @@
 if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
 /**
- * Loading the Mapbox Mapping system into a Magic Link is a little tricky, so this starter class helps put in place
+ * Loading the Mapbox Mapping system into a Magic Link is a little tricky, so this story-set class helps put in place
  * the key js and css resources needed to do that.
  *
  * @see https://zume.vision/maps/
@@ -12,11 +12,11 @@ class Dt_Story_Sets_Magic_Map_App extends DT_Magic_Url_Base
 {
     public $magic = false;
     public $parts = false;
-    public $page_title = 'Starter Map';
-    public $root = 'starter_app';
+    public $page_title = 'Story Set Map';
+    public $root = 'story-set_app';
     public $type = 'map';
-    public $type_name = 'Starter App Map';
-    public static $token = 'starter_app_map';
+    public $type_name = 'Story Set App Map';
+    public static $token = 'story-set_app_map';
     public $post_type = 'contacts'; // This can be supplied or not supplied. It does not influence the url verification.
 
     private static $_instance = null;
