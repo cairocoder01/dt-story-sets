@@ -4,5 +4,5 @@
   DB host:      mysql / wordpress_test
 
 Running PHPUnit (WP_MULTISITE=1)...
-PHPUnit requires the "dom", "json", "libxml", "mbstring", "tokenizer", "xml", "xmlwriter" extensions, but the "ctype" extension is not available.
+Could not find /workspace/wp-data/wordpress-tests-lib/includes/functions.php, have you run tests/install-wp-tests.sh ?
 
