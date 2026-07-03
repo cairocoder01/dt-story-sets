@@ -5,16 +5,22 @@
     "authors": [
         {
             "name": "cairocoder01",
-            "email": ""
+            "email": "cairocoder01@example.com"
         }
     ],
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "1.*",
-        "wp-coding-standards/wpcs": "3.1.*"
+        "wp-coding-standards/wpcs": "3.1.*",
+        "yoast/phpunit-polyfills": "^3.0"
     },
     "config": {
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "test/"
         }
     }
 }

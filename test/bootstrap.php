@@ -50,3 +50,5 @@ tests_add_filter( 'muplugins_loaded', $_register_theme );
 require $_tests_dir . '/includes/bootstrap.php';
 require_once __DIR__ . '/testcase.php';
 require_once __DIR__ . '/ctype-polyfill.php';
+
+define( 'WP_TESTS_PHPUNIT_POLYFILLS_PATH', dirname( __DIR__ ) . '/vendor/yoast/phpunit-polyfills' );
