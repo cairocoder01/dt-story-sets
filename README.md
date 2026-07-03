@@ -1,10 +1,4 @@
 ![Build Status](https://github.com/cairocoder01/dt-story-sets/actions/workflows/ci.yml/badge.svg?branch=master)
-## Dev notes, delete me:
-This is a story-set plugin to jumpstart your work with Disciple.Tools.
-Click the "Use this template" button above.
-See instructions for refactoring and getting started in the [wiki](https://github.com/cairocoder01/dt-story-sets/wiki)
-See instructions for creating releases and publishing your plugin: [wiki](https://github.com/cairocoder01/dt-story-sets/wiki)
-In order to display the banner correctly on the Disciple.Tools Community Plugins Site, don't change the 'Plugin Banner' text on line 12; only the URL.
 
 ## readme format:
 

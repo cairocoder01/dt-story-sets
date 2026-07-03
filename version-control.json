@@ -23,7 +23,7 @@
   },
   "icon": "https://raw.githubusercontent.com/cairocoder01/dt-story-sets/master/documentation/icon.png",
   "sections": {
-    "description": "Kick start your Disciple.Tools plugin project with this template! This plugin is a collection of our best practices and code bases for creating Disciple.Tools plugins. ",
+    "description": "Disciple.Tools Story Sets plugin allows users to create and manage story sets within Disciple.Tools.",
     "installation": "(Required) You must have Disciple.Tools Theme installed before using this plugin. Once Disciple.Tools is installed, you can use the normal Plugin system to install the plugin.",
     "changelog": ""
   }
