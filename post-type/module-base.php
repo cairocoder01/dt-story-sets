@@ -12,12 +12,12 @@ class Dt_Story_Sets_Base extends DT_Module_Base {
      * @todo update these variables with your post_type, module key, and names.
      * @var string
      */
-    public $post_type = 'dt_story_sets_post_type';
+    public $post_type = 'dt_story_set';
     public $module = 'story_set_base';
     public $single_name = 'Story Set';
     public $plural_name = 'Story Sets';
     public static function post_type(){
-        return 'dt_story_sets_post_type';
+        return 'dt_story_set';
     }
 
     private static $_instance = null;

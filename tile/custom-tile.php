@@ -28,7 +28,7 @@ class Dt_Story_Sets_Tile
      * @return mixed
      */
     public function dt_details_additional_tiles( $tiles, $post_type = '' ) {
-        if ( $post_type === 'contacts' || $post_type === 'dt_story_sets_post_type' ){
+        if ( $post_type === 'contacts' || $post_type === 'dt_story_set' ){
             $tiles['dt_story_sets'] = [ 'label' => __( 'Dt Story Sets', 'dt-story-sets' ) ];
             $tiles['a_beautiful_tile'] = [ 'label' => __( 'A Beautiful Tile', 'dt-story-sets' ) ];
         }
@@ -44,7 +44,7 @@ class Dt_Story_Sets_Tile
         /**
          * @todo set the post type
          */
-        if ( $post_type === 'contacts' || $post_type === 'dt_story_sets_post_type' ){
+        if ( $post_type === 'contacts' || $post_type === 'dt_story_set' ){
             /**
              * @todo Add the fields that you want to include in your tile.
              *
@@ -272,7 +272,7 @@ class Dt_Story_Sets_Tile
         /**
          * @todo set the post type and the section key that you created in the dt_details_additional_tiles() function
          */
-        if ( ( $post_type === 'contacts' || $post_type === 'dt_story_sets_post_type' ) && $section === 'dt_story_sets' ){
+        if ( ( $post_type === 'contacts' || $post_type === 'dt_story_set' ) && $section === 'dt_story_sets' ){
             /**
              * These are two sets of key data:
              * $this_post is the details for this specific post

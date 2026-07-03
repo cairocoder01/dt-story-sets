@@ -23,7 +23,7 @@ add_filter( 'dt_post_type_modules', function( $modules ){
         'enabled' => true,
         'locked' => true,
         'prerequisites' => [ 'contacts_base' ],
-        'post_type' => 'dt_story_sets_post_type',
+        'post_type' => 'dt_story_set',
         'description' => __( 'Default story-set functionality', 'dt-story-sets' )
     ];
 

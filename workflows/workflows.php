@@ -61,7 +61,7 @@ class Dt_Story_Sets_Workflows {
             case 'groups':
                 $this->build_default_workflows_groups( $workflows );
                 break;
-            case 'dt_story_sets_post_type':
+            case 'dt_story_set':
                 $this->build_default_workflows_story_set( $workflows );
                 break;
         }
@@ -76,7 +76,7 @@ class Dt_Story_Sets_Workflows {
     }
 
     private function build_default_workflows_story_set( &$workflows ) {
-        $dt_fields = DT_Posts::get_post_field_settings( 'dt_story_sets_post_type' );
+        $dt_fields = DT_Posts::get_post_field_settings( 'dt_story_set' );
 
         $workflows[] = (object) [
             'id'         => 'story-set_00001',

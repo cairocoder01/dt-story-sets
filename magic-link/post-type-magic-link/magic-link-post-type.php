@@ -13,7 +13,7 @@ class Dt_Story_Sets_Magic_Link extends DT_Magic_Url_Base {
     public $page_description = 'Post Type - Magic Links.';
     public $root = 'story-set_magic_app'; // @todo define the root of the url {yoursite}/root/type/key/action
     public $type = 'story-set_magic_type'; // @todo define the type
-    public $post_type = 'dt_story_sets_post_type'; // @todo set the post type this magic link connects with.
+    public $post_type = 'dt_story_set'; // @todo set the post type this magic link connects with.
     private $meta_key = '';
     public $show_bulk_send = false;
     public $show_app_tile = true; // show this magic link in the Apps tile on the post record
