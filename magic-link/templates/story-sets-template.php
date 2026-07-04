@@ -115,25 +115,7 @@ class Disciple_Tools_Magic_Links_Template_Story_Sets_Template extends DT_Magic_U
 
         $this->post = DT_Posts::get_post( $this->post_type, $this->parts['post_id'], true, false );
 
-        // @todo remove example and replace with DT_Posts::list_posts()
-        $data = [];
-        $data[] = [
-            'ID' => '123',
-            'name' => 'List item 1',
-            'last_modified' => [
-                'timestamp' => 1735678800,
-            ],
-        ];
-        $data[] = [
-            'ID' => '124',
-            'name' => 'List item 2',
-            'last_modified' => [
-                'timestamp' => 1735678800,
-            ],
-        ];
-        $this->items = [
-            'posts' => $data
-        ];
+        $this->items = DT_Posts::list_posts( $this->record_post_type, [], false );
 
         /**
          * Attempt to load corresponding link object, if a valid incoming id has been detected.

@@ -27,7 +27,8 @@ class Dt_Story_Sets_Site_Links {
         if ( $this->type === $args['connection_type'] ) {
             $args['capabilities'][] = 'create_' . $this->type;
             $args['capabilities'][] = 'update_any_' . $this->type;
-            // @todo add other capabilities here
+            $args['capabilities'][] = 'view_any_' . $this->type;
+            $args['capabilities'][] = 'delete_any_' . $this->type;
         }
         return $args;
     }

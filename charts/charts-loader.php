@@ -14,7 +14,7 @@ class Dt_Story_Sets_Charts
     public function __construct(){
 
         require_once( 'one-page-chart-template.php' );
-        new Dt_Story_Sets_Chart_Template();
+        new Dt_Story_Sets_Overview_Chart();
 
         /**
          * Add additional custom charts for dt-story-sets here by requiring
