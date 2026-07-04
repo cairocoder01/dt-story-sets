@@ -29,7 +29,7 @@ class Disciple_Tools_Magic_Links_Template_Story_Sets_Template extends DT_Magic_U
     protected $template_type = 'story-sets-template';
     public $page_title = 'Story Sets Template';
     public $page_description = 'Edit all connections to a given post';
-    public $root = 'templates'; // @todo define the root of the url {yoursite}/root/type/key/action
+    public $root = 'templates';
     public $type = 'template_id'; // Placeholder to be replaced with actual template ids
     public $type_name = '';
     public $post_type = 'contacts'; // Main post type that the ML is linked to.
@@ -268,7 +268,7 @@ class Disciple_Tools_Magic_Links_Template_Story_Sets_Template extends DT_Magic_U
 
         //set query fields to search for our post_id
         $query_fields = [];
-        //todo: based on list of posts that are accessible, verify current user
+        // Based on list of posts that are accessible, verify current user
         // has permission to edit the given connection_id
 
         //get related records that have our query fields
@@ -325,7 +325,7 @@ class Disciple_Tools_Magic_Links_Template_Story_Sets_Template extends DT_Magic_U
 
         $updates = [];
 
-        //todo: handle all input fields
+        // Handle all input fields
         /*
         foreach ( $params['fields']['dt'] ?? [] as $field ) {
         }
@@ -418,7 +418,7 @@ class Disciple_Tools_Magic_Links_Template_Story_Sets_Template extends DT_Magic_U
             DT_ML_Helper::update_user_logged_in_state();
         }
 
-        //todo: get sorted items using DT_Posts::list_posts()
+        // Get sorted items using DT_Posts::list_posts()
 
         return $this->items;
     }

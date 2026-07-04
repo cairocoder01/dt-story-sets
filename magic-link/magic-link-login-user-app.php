@@ -9,8 +9,8 @@ class Dt_Story_Sets_Magic_Login_User_App extends DT_Magic_Url_Base {
 
     public $page_title = 'Story Set - Magic Links - Login User App';
     public $page_description = 'Login User App - Magic Links.';
-    public $root = 'story-set_magic_login_app'; // @todo define the root of the url {yoursite}/root/type/key/action
-    public $type = 'story-set_user_login_app'; // @todo define the type
+    public $root = 'story-set_magic_login_app';
+    public $type = 'story-set_user_login_app';
     public $post_type = 'user';
     private $meta_key = '';
     public $show_bulk_send = false;
@@ -92,12 +92,10 @@ class Dt_Story_Sets_Magic_Login_User_App extends DT_Magic_Url_Base {
     }
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
-        // @todo add or remove js files with this filter
         return $allowed_js;
     }
 
     public function dt_magic_url_base_allowed_css( $allowed_css ) {
-        // @todo add or remove js files with this filter
         return $allowed_css;
     }
 
@@ -129,7 +127,6 @@ class Dt_Story_Sets_Magic_Login_User_App extends DT_Magic_Url_Base {
      * Writes custom styles to header
      *
      * @see DT_Magic_Url_Base()->header_style() for default state
-     * @todo remove if not needed
      */
     public function header_style(){
         ?>
@@ -146,7 +143,6 @@ class Dt_Story_Sets_Magic_Login_User_App extends DT_Magic_Url_Base {
      * Writes javascript to the header
      *
      * @see DT_Magic_Url_Base()->header_javascript() for default state
-     * @todo remove if not needed
      */
     public function header_javascript(){
         ?>
@@ -160,7 +156,6 @@ class Dt_Story_Sets_Magic_Login_User_App extends DT_Magic_Url_Base {
      * Writes javascript to the footer
      *
      * @see DT_Magic_Url_Base()->footer_javascript() for default state
-     * @todo remove if not needed
      */
     public function footer_javascript(){
         ?>
@@ -268,7 +263,7 @@ class Dt_Story_Sets_Magic_Login_User_App extends DT_Magic_Url_Base {
         $app_owner = get_user_by( 'ID', $app_owner_id );
         $app_owner_display_name = dt_get_user_display_name( $app_owner_id );
 
-        // @todo Create an app here that interacts with both the logged in user and the user who owns the app
+        // Create an app here that interacts with both the logged in user and the user who owns the app
 
         ?>
         <div id="custom-style"></div>
@@ -373,9 +368,6 @@ class Dt_Story_Sets_Magic_Login_User_App extends DT_Magic_Url_Base {
         }
 
         $data = [];
-
-        $data[] = [ 'name' => 'List item' ]; // @todo remove example
-        $data[] = [ 'name' => 'List item' ]; // @todo remove example
 
         return $data;
     }

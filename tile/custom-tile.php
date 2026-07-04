@@ -20,9 +20,6 @@ class Dt_Story_Sets_Tile
     /**
      * This function registers a new tile to a specific post type
      *
-     * @todo Set the post-type to the target post-type (i.e. contacts, groups, trainings, etc.)
-     * @todo Change the tile key and tile label
-     *
      * @param $tiles
      * @param string $post_type
      * @return mixed

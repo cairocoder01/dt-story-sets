@@ -9,7 +9,6 @@ class Dt_Story_Sets_Base extends DT_Module_Base {
 
     /**
      * Define post type variables
-     * @todo update these variables with your post_type, module key, and names.
      * @var string
      */
     public $post_type = 'dt_story_set';
@@ -82,7 +81,7 @@ class Dt_Story_Sets_Base extends DT_Module_Base {
     }
 
     /**
-     * @todo define the permissions for the roles
+     * Define the permissions for the roles
      * Documentation
      * @link https://github.com/DiscipleTools/Documentation/blob/master/Theme-Core/roles-permissions.md#rolesd
      */
@@ -123,7 +122,7 @@ class Dt_Story_Sets_Base extends DT_Module_Base {
     }
 
     /**
-     * @todo define fields
+     * Define fields
      * Documentation
      * @link https://github.com/DiscipleTools/Documentation/blob/master/Theme-Core/fields.md
      */
@@ -133,8 +132,8 @@ class Dt_Story_Sets_Base extends DT_Module_Base {
 
 
             /**
-             * @todo configure status appropriate to your post type
-             * @todo modify strings and add elements to default array
+             * Configure status appropriate to your post type
+             * Modify strings and add elements to default array
              */
             $fields['status'] = [
                 'name'        => __( 'Status', 'dt-story-sets' ),
@@ -227,7 +226,7 @@ class Dt_Story_Sets_Base extends DT_Module_Base {
             // end locations
 
             /**
-             * @todo this adds generational support to this post type. remove if not needed.
+             * This adds generational support to this post type.
              * generation and peer connection fields
              */
             $fields['parents'] = [
@@ -266,7 +265,7 @@ class Dt_Story_Sets_Base extends DT_Module_Base {
             // end generations
 
             /**
-             * @todo this adds people groups support to this post type. remove if not needed.
+             * This adds people groups support to this post type.
              * Connections to other post types
              */
             $fields['peoplegroups'] = [
@@ -295,7 +294,7 @@ class Dt_Story_Sets_Base extends DT_Module_Base {
         }
 
         /**
-         * @todo this adds connection to contacts. remove if not needed.
+         * This adds connection to contacts.
          */
         if ( $post_type === 'contacts' ){
             $fields[$this->post_type] = [
@@ -313,7 +312,7 @@ class Dt_Story_Sets_Base extends DT_Module_Base {
         }
 
         /**
-         * @todo this adds connection to groups. remove if not needed.
+         * This adds connection to groups.
          */
         if ( $post_type === 'groups' ){
             $fields[$this->post_type] = [
@@ -333,7 +332,7 @@ class Dt_Story_Sets_Base extends DT_Module_Base {
     }
 
     /**
-     * @todo define tiles
+     * Define tiles
      * @link https://github.com/DiscipleTools/Documentation/blob/master/Theme-Core/field-and-tiles.md
      */
     public function dt_details_additional_tiles( $tiles, $post_type = '' ){
@@ -345,7 +344,7 @@ class Dt_Story_Sets_Base extends DT_Module_Base {
     }
 
     /**
-     * @todo define additional section content
+     * Define additional section content
      * Documentation
      * @link https://github.com/DiscipleTools/Documentation/blob/master/Theme-Core/field-and-tiles.md#add-custom-content
      */
@@ -403,7 +402,7 @@ class Dt_Story_Sets_Base extends DT_Module_Base {
     //list page filters function
 
     /**
-     * @todo adjust queries to support list counts
+     * Adjust queries to support list counts
      * Documentation
      * @link https://github.com/DiscipleTools/Documentation/blob/master/Theme-Core/list-query.md
      */
@@ -442,7 +441,7 @@ class Dt_Story_Sets_Base extends DT_Module_Base {
     //build list page filters
     public static function dt_user_list_filters( $filters, $post_type ){
         /**
-         * @todo process and build filter lists
+         * Process and build filter lists
          */
         if ( $post_type === self::post_type() ){
             $records_assigned_to_me_by_status_counts = self::count_records_assigned_to_me_by_status();
@@ -551,10 +550,7 @@ class Dt_Story_Sets_Base extends DT_Module_Base {
 
     // scripts
     public function scripts(){
-        if ( is_singular( $this->post_type ) && get_the_ID() && DT_Posts::can_view( $this->post_type, get_the_ID() ) ){
-            $test = '';
-            // @todo add enqueue scripts
-        }
+        // Add enqueue scripts if needed
     }
 }
 
