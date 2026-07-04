@@ -4,7 +4,7 @@ if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 class Dt_Story_Sets_Endpoints
 {
     /**
-     * @todo Set the permissions your endpoint needs
+     * Set the permissions for dt-story-sets endpoints
      * @link https://github.com/DiscipleTools/Documentation/blob/master/theme-core/capabilities.md
      * @var string[]
      */
@@ -12,17 +12,17 @@ class Dt_Story_Sets_Endpoints
 
 
     /**
-     * @todo define the name of the $namespace
-     * @todo define the name of the rest route
-     * @todo defne method (CREATABLE, READABLE)
-     * @todo apply permission strategy. '__return_true' essentially skips the permission check.
+     * Define the namespace for dt-story-sets REST API.
+     * Route: /dt-story-sets/v1/story-sets
+     * Method: GET
+     * Permission strategy: check based on user capabilities.
      */
     //See https://github.com/DiscipleTools/disciple-tools-theme/wiki/Site-to-Site-Link for outside of wordpress authentication
     public function add_api_routes() {
         $namespace = 'dt-story-sets/v1';
 
         register_rest_route(
-            $namespace, '/endpoint', [
+            $namespace, '/story-sets', [
                 'methods'  => 'GET',
                 'callback' => [ $this, 'endpoint' ],
                 'permission_callback' => function( WP_REST_Request $request ) {
@@ -35,9 +35,8 @@ class Dt_Story_Sets_Endpoints
 
     public function endpoint( WP_REST_Request $request ) {
 
-        // @todo run your function here
-
-        return true;
+        // Implement logic for fetching story sets
+        return [ 'message' => 'Story sets data' ];
     }
 
     private static $_instance = null;

@@ -17,7 +17,8 @@ class Dt_Story_Sets_Charts
         new Dt_Story_Sets_Chart_Template();
 
         /**
-         * @todo add other charts like the pattern above here
+         * Add additional custom charts for dt-story-sets here by requiring
+         * the new chart class and initializing it using the pattern above.
          */
     } // End __construct
 }
