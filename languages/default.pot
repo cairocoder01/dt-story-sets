@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Disciple.Tools - Dt Story Sets 0.1\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/dt-story-sets\n"
+"Report-Msgid-Bugs-To: https://github.com/cairocoder01/dt-story-sets/issues\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
