@@ -87,14 +87,16 @@ class Dt_Story_Sets_Base extends DT_Module_Base {
      */
     public function dt_set_roles_and_permissions( $expected_roles ){
 
-        if ( !isset( $expected_roles['my_story_set_role'] ) ){
-            $expected_roles['my_story_set_role'] = [
+        if ( !isset( $expected_roles['story_set_user'] ) ){
+            $expected_roles['story_set_user'] = [
 
-                'label' => __( 'My Story Set Role', 'dt-story-sets' ),
-                'description' => 'Does something Cool',
+                'label' => __( 'Story Set User', 'dt-story-sets' ),
+                'description' => __( 'Can create and update story sets.', 'dt-story-sets' ),
                 'permissions' => [
                     'access_contacts' => true,
-                    // @todo more capabilities
+                    'access_' . $this->post_type => true,
+                    'create_' . $this->post_type => true,
+                    'update_' . $this->post_type => true,
                 ]
             ];
         }
