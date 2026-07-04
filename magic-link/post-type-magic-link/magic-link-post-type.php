@@ -111,13 +111,13 @@ class Dt_Story_Sets_Magic_Link extends DT_Magic_Url_Base {
     }
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
-        // @todo add or remove js files with this filter
+        // add or remove js files with this filter
         $allowed_js[] = 'magic_link_scripts';
         return $allowed_js;
     }
 
     public function dt_magic_url_base_allowed_css( $allowed_css ) {
-        // @todo add or remove js files with this filter
+        // add or remove js files with this filter
         $allowed_css[] = 'magic_link_css';
         return $allowed_css;
     }
@@ -268,8 +268,6 @@ class Dt_Story_Sets_Magic_Link extends DT_Magic_Url_Base {
 
         $data = [];
 
-        $data[] = [ 'name' => 'List item' ]; // @todo remove example
-        $data[] = [ 'name' => 'List item' ]; // @todo remove example
 
         return $data;
     }

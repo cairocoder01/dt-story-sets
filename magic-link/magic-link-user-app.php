@@ -86,12 +86,12 @@ class Dt_Story_Sets_Magic_User_App extends DT_Magic_Url_Base {
     }
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
-        // @todo add or remove js files with this filter
+        // add or remove js files with this filter
         return $allowed_js;
     }
 
     public function dt_magic_url_base_allowed_css( $allowed_css ) {
-        // @todo add or remove js files with this filter
+        // add or remove js files with this filter
         return $allowed_css;
     }
 
@@ -123,7 +123,6 @@ class Dt_Story_Sets_Magic_User_App extends DT_Magic_Url_Base {
      * Writes custom styles to header
      *
      * @see DT_Magic_Url_Base()->header_style() for default state
-     * @todo remove if not needed
      */
     public function header_style(){
         ?>
@@ -140,7 +139,6 @@ class Dt_Story_Sets_Magic_User_App extends DT_Magic_Url_Base {
      * Writes javascript to the header
      *
      * @see DT_Magic_Url_Base()->header_javascript() for default state
-     * @todo remove if not needed
      */
     public function header_javascript(){
         ?>
@@ -154,7 +152,6 @@ class Dt_Story_Sets_Magic_User_App extends DT_Magic_Url_Base {
      * Writes javascript to the footer
      *
      * @see DT_Magic_Url_Base()->footer_javascript() for default state
-     * @todo remove if not needed
      */
     public function footer_javascript(){
         ?>

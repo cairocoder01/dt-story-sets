@@ -6,11 +6,11 @@
     jQuery('#metrics-sidemenu').foundation('down', jQuery(`#${window.wp_js_object.base_slug}-menu`));
 
 
-    show_template_overview()
+    show_story_sets_overview()
 
   })
 
-  function show_template_overview(){
+  function show_story_sets_overview(){
 
     let localizedObject = window.wp_js_object // change this object to the one named in ui-menu-and-enqueue.php
     let translations = localizedObject.translations

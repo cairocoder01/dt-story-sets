@@ -2,7 +2,7 @@
 
 # Disciple.Tools - Dt Story Sets
 
-__Kick start your Disciple.Tools plugin project with this template!__
+__Kick start your Disciple.Tools plugin project with this story-set!__
 
 __This plugin is a collection of our best practices and code bases for creating Disciple.Tools plugins.__
 
@@ -18,7 +18,7 @@ Instead of waiting for us, you can run ahead on your own. This
 plugin includes all our best practices and story-set codes for the most commonly developed extensions.
 
 We have included story-set code for a new post-type, a new REST API endpoint, a new admin page, or a new metrics chart.
-The template also provides code quality and code style tools, Github Actions integration, multi-language support, activation and
+The story-set also provides code quality and code style tools, Github Actions integration, multi-language support, activation and
 deactivation functions, and more. In truth it's likely more than your project needs, so we'll
 guide you through removing the elements your project does not need.)
 
