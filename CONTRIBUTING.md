@@ -9,9 +9,9 @@ Make sure you look for these in PHP, HTML and JavaScript code.
 ### PHPCS
 We use [PHPCS](https://github.com/squizlabs/PHP_CodeSniffer) and [PHPCS WordPress Coding Standards](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards) to test for syntax errors, security vulnerabilities and some styling rules. We expect your commits to pass these tests.
 
-In the theme you can run `./tests/test_phpcs.sh` or create a pull request to our repo and Github Actions CI will run the tests for you.
+In the theme you can run `./test/test_phpcs.sh` or create a pull request to our repo and Github Actions CI will run the tests for you.
 
-If you are working on a plugin based off our story-set plugin run `./includes/admin/test/test_phpcs.sh`
+If you are working on a plugin based off our story-set plugin run `./test/test_phpcs.sh`
 
 You might need to run `composer install` first.
 

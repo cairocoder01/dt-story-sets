@@ -289,7 +289,7 @@ if ( !function_exists( 'dt_hook_ajax_notice_handler' ) ){
  * anywhere as long as it is publicly accessible. You can download the version file listed below and use it as
  * a template.
  * Also, see the instructions for version updating to understand the steps involved.
- * @see https://github.com/DiscipleTools/disciple-tools-version-control/wiki/How-to-Update-the-Story Set-Plugin
+ * @see https://github.com/cairocoder01/dt-story-sets/wiki/Configuring-Remote-Updating-System
  */
 add_action( 'plugins_loaded', function (){
     if ( ( is_admin() || wp_doing_cron() ) && !( is_multisite() && class_exists( 'DT_Multisite' ) ) ){
