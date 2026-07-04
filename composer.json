@@ -1,6 +1,6 @@
 {
     "name": "cairocoder01/dt-story-sets",
-    "description": "Disciple.Tools Story Sets",
+    "description": "Disciple.Tools Story Sets allows users to create and manage story sets within Disciple.Tools.",
     "type": "wordpress-plugin",
     "authors": [
         {

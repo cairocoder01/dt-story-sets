@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Disciple.Tools - Dt Story Sets
  * Plugin URI: https://github.com/cairocoder01/dt-story-sets
- * Description: Disciple.Tools - Dt Story Sets is intended to help developers and integrator jumpstart their extension of the Disciple.Tools system.
+ * Description: Disciple.Tools Story Sets allows users to create and manage story sets within Disciple.Tools.
  * Text Domain: dt-story-sets
  * Domain Path: /languages
  * Version:  0.1
