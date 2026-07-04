@@ -30,19 +30,6 @@ msgstr ""
 msgid "Magic Url"
 msgstr ""
 
-#: post-type/loader.php:22 post-type/module-base.php:63
-#: post-type/module-base.php:79
-msgid "Starter"
-msgstr ""
-
-#: post-type/loader.php:27
-msgid "Default starter functionality"
-msgstr ""
-
-#: post-type/module-base.php:64 post-type/module-base.php:80
-msgid "Starters"
-msgstr ""
-
 #: post-type/module-base.php:95
 msgid "Multiplier"
 msgstr ""
