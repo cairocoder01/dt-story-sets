@@ -2,27 +2,19 @@
 
 # Disciple.Tools - Dt Story Sets
 
-__Kick start your Disciple.Tools plugin project with this story-set!__
-
-__This plugin is a collection of our best practices and code bases for creating Disciple.Tools plugins.__
+Dt Story Sets is a Disciple.Tools plugin that provides tools and components to help you extend Disciple.Tools for your movement effort. It includes commonly used extensions and components, such as custom post types, REST API endpoints, admin pages, and metrics charts, to accelerate your development.
 
 ## Purpose
 
-A team, organization, or movement effort might love Disciple.Tools, but __wish it had one more thing.__
+A team, organization, or movement effort might love Disciple.Tools, but wish it had one more thing.
 
-We know that even though we have a common commission to make disciples of all nations, yet our assignments
-on how to do that differ greatly or even if we share similar values our stages in movement differ. Either way,
-we know we can't create everything everyone needs.
+We know that even though we have a common commission to make disciples of all nations, yet our assignments on how to do that differ greatly or even if we share similar values our stages in movement differ. Either way, we know we can't create everything everyone needs.
 
-Instead of waiting for us, you can run ahead on your own. This
-plugin includes all our best practices and story-set codes for the most commonly developed extensions.
+This plugin includes commonly developed extensions and components for Disciple.Tools. 
 
-We have included story-set code for a new post-type, a new REST API endpoint, a new admin page, or a new metrics chart.
-The story-set also provides code quality and code style tools, Github Actions integration, multi-language support, activation and
-deactivation functions, and more. In truth it's likely more than your project needs, so we'll
-guide you through removing the elements your project does not need.)
+We have included code examples for a new post-type, a new REST API endpoint, a new admin page, or a new metrics chart. The plugin also provides code quality and code style tools, Github Actions integration, multi-language support, activation and deactivation functions, and more. 
 
-__This plugin is for developers__ who want to extend the Disciple.Tools system for their movement effort.
+This plugin is for developers who want to extend the Disciple.Tools system for their movement effort.
 
 ## Included
 #### Framework
@@ -36,7 +28,7 @@ __This plugin is for developers__ who want to extend the Disciple.Tools system f
 
 #### Components
 
- 1. Sample admin menu and admin page with story-set tabs component.
+ 1. Sample admin menu and admin page with tabs component.
  1. Sample post-type class and hooks.
  1. Sample metrics chart, javascript, and REST api.
  1. Sample REST api.
