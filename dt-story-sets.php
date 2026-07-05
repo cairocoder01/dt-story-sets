@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Disciple.Tools - Dt Story Sets
+ * Plugin Name: Disciple.Tools - Story Sets
  * Plugin URI: https://github.com/cairocoder01/dt-story-sets
  * Description: Disciple.Tools Story Sets allows users to create and manage story sets within Disciple.Tools.
  * Text Domain: dt-story-sets
@@ -234,7 +234,7 @@ if ( ! function_exists( 'dt_story_sets_hook_admin_notice' ) ) {
         global $dt_story_sets_required_dt_theme_version;
         $wp_theme = wp_get_theme();
         $current_version = $wp_theme->version;
-        $message = "'Disciple.Tools - Dt Story Sets' plugin requires 'Disciple.Tools' theme to work. Please activate 'Disciple.Tools' theme or make sure it is latest version.";
+        $message = "'Disciple.Tools - Story Sets' plugin requires 'Disciple.Tools' theme to work. Please activate 'Disciple.Tools' theme or make sure it is latest version.";
         if ( $wp_theme->get_template() === 'disciple-tools-theme' ){
             $message .= ' ' . sprintf( esc_html( 'Current Disciple.Tools version: %1$s, required version: %2$s' ), esc_html( $current_version ), esc_html( $dt_story_sets_required_dt_theme_version ) );
         }

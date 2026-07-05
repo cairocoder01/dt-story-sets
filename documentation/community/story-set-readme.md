@@ -1,39 +1,23 @@
 ![Build Status](https://github.com/cairocoder01/dt-story-sets/actions/workflows/ci.yml/badge.svg?branch=master)
 
-# Disciple.Tools - Dt Story Sets
+# Disciple.Tools - Story Sets
 
-Dt Story Sets is a Disciple.Tools plugin that provides tools and components to help you extend Disciple.Tools for your movement effort. It includes commonly used extensions and components, such as custom post types, REST API endpoints, admin pages, and metrics charts, to accelerate your development.
+Disciple.Tools - Story Sets is a plugin for Disciple.Tools that enables the creation and management of Story Sets. It provides features to track movement progress through defined story sets, including custom post types, magic links for easy access, and metrics visualization.
 
 ## Purpose
 
-A team, organization, or movement effort might love Disciple.Tools, but wish it had one more thing.
+The Story Sets plugin allows movement leaders to create, track, and analyze story sets within the Disciple.Tools ecosystem. It helps teams monitor engagement and progress by providing a structured way to manage story set content and track user interaction through magic links and built-in metrics.
 
-We know that even though we have a common commission to make disciples of all nations, yet our assignments on how to do that differ greatly or even if we share similar values our stages in movement differ. Either way, we know we can't create everything everyone needs.
+It is designed to be used by Disciple.Tools users to manage their discipleship movement's story sets effectively.
 
-This plugin includes commonly developed extensions and components for Disciple.Tools. 
 
-We have included code examples for a new post-type, a new REST API endpoint, a new admin page, or a new metrics chart. The plugin also provides code quality and code style tools, Github Actions integration, multi-language support, activation and deactivation functions, and more. 
+## Features
 
-This plugin is for developers who want to extend the Disciple.Tools system for their movement effort.
+- **Story Sets Management**: Create and manage story set content.
+- **Magic Links**: Generate unique links for users to access story sets easily.
+- **Metrics & Charts**: Visualize progress and engagement through custom metrics and charts.
+- **Disciple.Tools Integration**: Native integration with Disciple.Tools post types, admin panels, and settings.
 
-## Included
-#### Framework
-
- 1. Wordpress code style requirements. ```phpcs.xml```
- 1. PHP Code Sniffer support (composer) @use ```/vendor/bin/phpcs``` and ```/vendor/bin/phpcbf```
- 1. Github Actions Continuous Integration ```.githbub/workflows/ci.yml```
- 1. Disciple.Tools Theme presence check. ```dt_story_sets()```
- 1. Remote upgrade system for ongoing updates outside the Wordpress Directory.
- 1. Multilingual support. ```/languages``` & ```default.pot```
-
-#### Components
-
- 1. Sample admin menu and admin page with tabs component.
- 1. Sample post-type class and hooks.
- 1. Sample metrics chart, javascript, and REST api.
- 1. Sample REST api.
- 1. Sample site-to-site link hooks.
- 1. Sample custom tile code.
 
 ## Recommended
 
