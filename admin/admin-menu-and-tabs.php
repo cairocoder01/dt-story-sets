@@ -140,7 +140,7 @@ class Dt_Story_Sets_Tab_General {
         $token = Dt_Story_Sets_Menu::instance()->token;
         $this->process_form_fields( $token );
 
-        $story_sets_settings = get_option( $token . '_story_sets_settings' );
+        $story_sets_settings = get_option( 'dt-story-sets-option' );
         ?>
         <form method="post">
             <?php wp_nonce_field( 'dt_admin_form', 'dt_admin_form_nonce' ) ?>
@@ -157,7 +157,7 @@ class Dt_Story_Sets_Tab_General {
                         <?php esc_html_e( 'Story Sets Option', 'dt-story-sets' ) ?>
                     </td>
                     <td>
-                        <input type="text" name="story-sets-option" placeholder="" value="<?php echo esc_attr( $story_sets_settings ) ?>">
+                        <input type="text" name="dt-story-sets-option" placeholder="" value="<?php echo esc_attr( $story_sets_settings ) ?>">
                     </td>
                 </tr>
                 <tr>
@@ -179,8 +179,8 @@ class Dt_Story_Sets_Tab_General {
 
             $post_vars = dt_recursive_sanitize_array( $_POST );
 
-            if ( isset( $post_vars['story-sets-option'] ) ) {
-                update_option( $token . '_story_sets_settings', $post_vars['story-sets-option'] );
+            if ( isset( $post_vars['dt-story-sets-option'] ) ) {
+                update_option( 'dt-story-sets-option', $post_vars['dt-story-sets-option'] );
             }
         }
     }

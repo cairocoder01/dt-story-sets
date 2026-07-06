@@ -366,7 +366,7 @@ class Disciple_Tools_Magic_Links_Template_Story_Sets_Template extends DT_Magic_U
 
         // Next, dispatch submission notification, accordingly; always send by default.
         if ( isset( $params['send_submission_notifications'] ) && $params['send_submission_notifications'] && isset( $updated_post['assigned_to'], $updated_post['assigned_to']['id'], $updated_post['assigned_to']['display'] ) ) {
-            $default_comment = sprintf( __( '%s Updates Submitted', 'disciple_tools' ), $params['template_name'] );
+            $default_comment = sprintf( __( '%s Updates Submitted', 'dt-story-sets' ), $params['template_name'] );
             $submission_comment = '@[' . $updated_post['assigned_to']['display'] . '](' . $updated_post['assigned_to']['id'] . ') ' . $default_comment;
             DT_Posts::add_post_comment( $updated_post['post_type'], $updated_post['ID'], $submission_comment, 'comment', [], false );
         }

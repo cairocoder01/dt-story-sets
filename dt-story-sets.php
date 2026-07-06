@@ -148,6 +148,14 @@ class Dt_Story_Sets {
      */
     public static function activation() {
         // add elements here that need to fire on activation
+        $old_option_name = 'dt_story_sets_story_sets_settings';
+        $new_option_name = 'dt-story-sets-option';
+
+        $old_value = get_option( $old_option_name );
+        if ( false !== $old_value ) {
+            update_option( $new_option_name, $old_value );
+            delete_option( $old_option_name );
+        }
     }
 
     /**

@@ -4,7 +4,7 @@ if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 /**
  * Adds a non-object (neither post or user) magic link page.
  *
- * @example https://yoursite.com/story-set_app/page/
+ * @example https://yoursite.com/dt-story-sets_app/page/
  *
  * @use-case You could use a page like this as a registration page, a landing page for a campaign, a map page.
  * Basically you can create a publically accessible page that can display data from inside Disciple Tools to a public
@@ -16,10 +16,10 @@ class Dt_Story_Sets_Magic_Non_Object_App extends DT_Magic_Url_Base
     public $magic = false;
     public $parts = false;
     public $page_title = 'Title';
-    public $root = 'story-set_app';
+    public $root = 'dt-story-sets_app';
     public $type = 'page';
     public $type_name = 'Story Set App';
-    public static $token = 'story-set_app_page';
+    public static $token = 'dt-story-sets_app_page';
     public $post_type = 'contacts'; // This can be supplied or not supplied. It does not influence the url verification.
 
     private static $_instance = null;
