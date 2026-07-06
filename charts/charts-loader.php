@@ -13,7 +13,7 @@ class Dt_Story_Sets_Charts
 
     public function __construct(){
 
-        require_once( 'story-sets-overview-chart.php' );
+        require_once( 'dt-story-sets-overview-chart.php' );
         new Dt_Story_Sets_Overview_Chart();
 
         /**

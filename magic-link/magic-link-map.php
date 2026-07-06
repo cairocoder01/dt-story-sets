@@ -13,10 +13,10 @@ class Dt_Story_Sets_Magic_Map_App extends DT_Magic_Url_Base
     public $magic = false;
     public $parts = false;
     public $page_title = 'Story Set Map';
-    public $root = 'story-set_app';
+    public $root = 'dt-story-sets_app';
     public $type = 'map';
     public $type_name = 'Story Set App Map';
-    public static $token = 'story-set_app_map';
+    public static $token = 'dt-story-sets_app_map';
     public $post_type = 'contacts'; // This can be supplied or not supplied. It does not influence the url verification.
 
     private static $_instance = null;

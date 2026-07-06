@@ -15,7 +15,7 @@ class Dt_Story_Sets_Overview_Chart extends DT_Metrics_Chart_Base
     public $title = 'Story Sets Overview';
     public $slug = 'overview'; // lowercase
     public $js_object_name = 'wp_js_object'; // This object will be loaded into the metrics.js file by the wp_localize_script.
-    public $js_file_name = 'story-sets-overview-chart.js'; // should be full file name plus extension
+    public $js_file_name = 'dt-story-sets-overview-chart.js'; // should be full file name plus extension
     public $permissions = [ 'dt_all_access_contacts', 'view_project_metrics' ];
 
     public function __construct() {

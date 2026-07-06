@@ -48,7 +48,7 @@ class Dt_Story_Sets_Workflows {
          * Please ensure workflow ids are both static and unique; as they
          * will be used further downstream within admin view and execution handler.
          * Dynamically generated timestamps will not work, as they will regularly
-         * change. Therefore, maybe a plugin id prefix, followed by post type and then a constant: E.g: story-set_groups_00001
+         * change. Therefore, maybe a plugin id prefix, followed by post type and then a constant: E.g: dt-story-sets_groups_00001
          *
          * Also, review /themes/disciple-tools-theme/dt-core/admin/js/dt-utilities-workflows.js;
          * so, as to determine which condition and action event types can be assigned to which field type!
@@ -62,7 +62,7 @@ class Dt_Story_Sets_Workflows {
                 $this->build_default_workflows_groups( $workflows );
                 break;
             case 'dt_story_set':
-                $this->build_default_workflows_story_set( $workflows );
+                $this->build_default_workflows_dt_story_sets( $workflows );
                 break;
         }
 
@@ -75,11 +75,11 @@ class Dt_Story_Sets_Workflows {
     private function build_default_workflows_groups( &$workflows ) {
     }
 
-    private function build_default_workflows_story_set( &$workflows ) {
+    private function build_default_workflows_dt_story_sets( &$workflows ) {
         $dt_fields = DT_Posts::get_post_field_settings( 'dt_story_set' );
 
         $workflows[] = (object) [
-            'id'         => 'story-set_00001',
+            'id'         => 'dt-story-sets_00001',
             'name'       => 'Story Set Template Add Text On Creation',
             'enabled'    => false, // Can be enabled via admin view
             'trigger'    => Disciple_Tools_Workflows_Defaults::$trigger_created['id'],

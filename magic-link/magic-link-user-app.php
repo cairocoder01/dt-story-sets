@@ -9,8 +9,8 @@ class Dt_Story_Sets_Magic_User_App extends DT_Magic_Url_Base {
 
     public $page_title = 'Story Set - Magic Links - User App';
     public $page_description = 'User App - Magic Links.';
-    public $root = 'story-set_magic_app';
-    public $type = 'story-set_user_app';
+    public $root = 'dt-story-sets_magic_app';
+    public $type = 'dt-story-sets_user_app';
     public $post_type = 'user';
     private $meta_key = '';
     public $show_bulk_send = false;

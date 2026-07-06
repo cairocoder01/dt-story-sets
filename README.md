@@ -13,7 +13,7 @@ This plugin enables Disciple.Tools users to structure their story-based engageme
 - **Story Sets Management**: Define and manage story sets using custom post types.
 - **Metrics Tracking**: View insights and metrics related to your story sets.
 - **Integration**: Works seamlessly within the Disciple.Tools ecosystem, leveraging its REST API and UI components.
-- **Magic Links**: Utilize magic links for secure and easy user access to story-set related data.
+- **Magic Links**: Utilize magic links for secure and easy user access to dt-story-sets related data.
 
 ## Requirements
 - WordPress installed.
