@@ -15,7 +15,7 @@ If you are working on a plugin based off our dt-story-sets plugin run `./test/te
 
 ### PHPUnit Testing
 To set up the PHPUnit environment:
-1. Run `./tests/install-wp-tests.sh`.
+1. Run `./test/install-wp-tests.sh`.
 2. Ensure `dt_location_grid.tsv.zip` is present in the `wp-data` path.
 
 You might need to run `composer install` first.
