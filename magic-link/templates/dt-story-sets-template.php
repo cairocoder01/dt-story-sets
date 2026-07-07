@@ -17,14 +17,14 @@ add_filter('dt_magic_link_template_types', function( $types ) {
 
 add_action('dt_magic_link_template_load', function ( $template ) {
     if ( isset( $template['type'] ) && $template['type'] === 'story-sets-template' ) {
-        new Disciple_Tools_Magic_Links_Template_Story_Sets_Template( $template );
+        new Dt_Story_Sets_Magic_Link_Template( $template );
     }
 } );
 
 /**
- * Class Disciple_Tools_Magic_Links_Templates
+ * Class Dt_Story_Sets_Magic_Link_Template
  */
-class Disciple_Tools_Magic_Links_Template_Story_Sets_Template extends DT_Magic_Url_Base {
+class Dt_Story_Sets_Magic_Link_Template extends DT_Magic_Url_Base {
 
     protected $template_type = 'story-sets-template';
     public $page_title = 'Story Sets Template';
