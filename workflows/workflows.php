@@ -79,7 +79,7 @@ class Dt_Story_Sets_Workflows {
 
         $workflows[] = (object) [
             'id'         => 'dt-story-sets_00001',
-            'name'       => 'Story Set Template Add Text On Creation',
+            'name'       => 'Story Set Add Text On Creation',
             'enabled'    => false, // Can be enabled via admin view
             'trigger'    => Disciple_Tools_Workflows_Defaults::$trigger_created['id'],
             'conditions' => [

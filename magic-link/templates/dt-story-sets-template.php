@@ -6,11 +6,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_filter('dt_magic_link_template_types', function( $types ) {
     $types['contacts'][] = [
         'value' => 'story-sets-template',
-        'text' => 'Story Sets Template',
+        'text' => 'Story Sets Magic Link',
     ];
     $types['default-options'][] = [
         'value' => 'story-sets-template',
-        'text' => 'Story Sets Template',
+        'text' => 'Story Sets Magic Link',
     ];
     return $types;
 });
@@ -27,7 +27,7 @@ add_action('dt_magic_link_template_load', function ( $template ) {
 class Dt_Story_Sets_Magic_Link_Template extends DT_Magic_Url_Base {
 
     protected $template_type = 'story-sets-template';
-    public $page_title = 'Story Sets Template';
+    public $page_title = 'Story Sets Magic Link';
     public $page_description = 'Edit all connections to a given post';
     public $root = 'templates';
     public $type = 'template_id'; // Placeholder to be replaced with actual template ids
