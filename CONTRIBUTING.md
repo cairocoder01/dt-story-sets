@@ -11,7 +11,7 @@ We use [PHPCS](https://github.com/squizlabs/PHP_CodeSniffer) and [PHPCS WordPres
 
 In the theme you can run `./test/test_phpcs.sh` or create a pull request to our repo and Github Actions CI will run the tests for you.
 
-If you are working on a plugin based off our [disciple-tools-plugin-starter](https://github.com/DiscipleTools/disciple-tools-plugin-starter) plugin run `./test/test_phpcs.sh`
+If you are working on a plugin based off our [dt-story-sets](https://github.com/cairocoder01/dt-story-sets) plugin run `./test/test_phpcs.sh`
 
 ### PHPUnit Testing
 To set up the PHPUnit environment:
@@ -20,10 +20,10 @@ To set up the PHPUnit environment:
 
 You might need to run `composer install` first.
 
-Note: rules for PHPCS are located in the `phpcs.xml` file. We sometimes update the rule list as PHPCS updates. We’ll update the [disciple-tools-plugin-starter](https://github.com/DiscipleTools/disciple-tools-plugin-starter) `phpcs.xml`, you might want to look there to get the latest version.
+Note: rules for PHPCS are located in the `phpcs.xml` file. We sometimes update the rule list as PHPCS updates. We’ll update the [dt-story-sets](https://github.com/cairocoder01/dt-story-sets) `phpcs.xml`, you might want to look there to get the latest version.
 
 ### GitHub and Commits
-For new plugins copy our [disciple-tools-plugin-starter](https://github.com/DiscipleTools/disciple-tools-plugin-starter).
+For new plugins copy our [dt-story-sets](https://github.com/cairocoder01/dt-story-sets).
 
 To commit to the theme or an existing plugin start by creating a fork of the repository. When you are ready, create a pull request into our repo.
 
