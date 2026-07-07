@@ -50,8 +50,7 @@ class Dt_Story_Sets_Workflows {
          * Dynamically generated timestamps will not work, as they will regularly
          * change. Therefore, maybe a plugin id prefix, followed by post type and then a constant: E.g: dt-story-sets_groups_00001
          *
-         * Also, review /themes/disciple-tools-theme/dt-core/admin/js/dt-utilities-workflows.js;
-         * so, as to determine which condition and action event types can be assigned to which field type!
+         * Also, review the Disciple.Tools theme to determine which condition and action event types can be assigned to which field type!
          */
 
         switch ( $post_type ) {
