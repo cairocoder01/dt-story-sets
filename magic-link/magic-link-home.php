@@ -10,7 +10,6 @@ if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
  * @example https://yoursite.com/(empty)
  *
  * @see https://disciple.tools/plugins/porch/
- * @see https://disciple.tools/plugins/disciple-tools-porch-template/
  */
 class Dt_Story_Sets_Magic_Home_App extends DT_Magic_Url_Base
 {
