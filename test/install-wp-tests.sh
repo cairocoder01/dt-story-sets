@@ -12,7 +12,7 @@ DB_HOST=${4-localhost}
 WP_VERSION=${5-latest}
 SKIP_DB_CREATE=${6-false}
 
-PLUGIN_DIR=$(pwd ../.)
+PLUGIN_DIR=$(cd .. && pwd)
 TMPDIR=${TMPDIR-/tmp}
 TMPDIR=$(echo $TMPDIR | sed -e "s/\/$//")
 WP_TESTS_DIR=${WP_TESTS_DIR-$TMPDIR/wordpress-tests-lib}
@@ -163,7 +163,7 @@ install_theme() {
 }
 
 install_plugin() {
-    ln -sf $PLUGIN_DIR $WP_PLUGINS_DIR/.
+    ln -sf $PLUGIN_DIR $WP_PLUGINS_DIR/dt-story-sets
 }
 
 install_wp
