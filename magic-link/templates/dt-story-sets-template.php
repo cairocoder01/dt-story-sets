@@ -5,31 +5,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_filter('dt_magic_link_template_types', function( $types ) {
     $types['contacts'][] = [
-        'value' => 'starter-template',
-        'text' => 'Starter Template',
+        'value' => 'story-sets-template',
+        'text' => 'Story Sets Magic Link',
     ];
     $types['default-options'][] = [
-        'value' => 'starter-template',
-        'text' => 'Starter Template',
+        'value' => 'story-sets-template',
+        'text' => 'Story Sets Magic Link',
     ];
     return $types;
 });
 
 add_action('dt_magic_link_template_load', function ( $template ) {
-    if ( isset( $template['type'] ) && $template['type'] === 'starter-template' ) {
-        new Disciple_Tools_Magic_Links_Template_Starter_Template( $template );
+    if ( isset( $template['type'] ) && $template['type'] === 'story-sets-template' ) {
+        new Dt_Story_Sets_Magic_Link_Template( $template );
     }
 } );
 
 /**
- * Class Disciple_Tools_Magic_Links_Templates
+ * Class Dt_Story_Sets_Magic_Link_Template
  */
-class Disciple_Tools_Magic_Links_Template_Starter_Template extends DT_Magic_Url_Base {
+class Dt_Story_Sets_Magic_Link_Template extends DT_Magic_Url_Base {
 
-    protected $template_type = 'starter-template';
-    public $page_title = 'Starter Template';
+    protected $template_type = 'story-sets-template';
+    public $page_title = 'Story Sets Magic Link';
     public $page_description = 'Edit all connections to a given post';
-    public $root = 'templates'; // @todo define the root of the url {yoursite}/root/type/key/action
+    public $root = 'templates';
     public $type = 'template_id'; // Placeholder to be replaced with actual template ids
     public $type_name = '';
     public $post_type = 'contacts'; // Main post type that the ML is linked to.
@@ -115,25 +115,7 @@ class Disciple_Tools_Magic_Links_Template_Starter_Template extends DT_Magic_Url_
 
         $this->post = DT_Posts::get_post( $this->post_type, $this->parts['post_id'], true, false );
 
-        // @todo remove example and replace with DT_Posts::list_posts()
-        $data = [];
-        $data[] = [
-            'ID' => '123',
-            'name' => 'List item 1',
-            'last_modified' => [
-                'timestamp' => 1735678800,
-            ],
-        ];
-        $data[] = [
-            'ID' => '124',
-            'name' => 'List item 2',
-            'last_modified' => [
-                'timestamp' => 1735678800,
-            ],
-        ];
-        $this->items = [
-            'posts' => $data
-        ];
+        $this->items = DT_Posts::list_posts( $this->record_post_type, [], false );
 
         /**
          * Attempt to load corresponding link object, if a valid incoming id has been detected.
@@ -286,7 +268,7 @@ class Disciple_Tools_Magic_Links_Template_Starter_Template extends DT_Magic_Url_
 
         //set query fields to search for our post_id
         $query_fields = [];
-        //todo: based on list of posts that are accessible, verify current user
+        // Based on list of posts that are accessible, verify current user
         // has permission to edit the given connection_id
 
         //get related records that have our query fields
@@ -343,7 +325,7 @@ class Disciple_Tools_Magic_Links_Template_Starter_Template extends DT_Magic_Url_
 
         $updates = [];
 
-        //todo: handle all input fields
+        // Handle all input fields
         /*
         foreach ( $params['fields']['dt'] ?? [] as $field ) {
         }
@@ -384,7 +366,7 @@ class Disciple_Tools_Magic_Links_Template_Starter_Template extends DT_Magic_Url_
 
         // Next, dispatch submission notification, accordingly; always send by default.
         if ( isset( $params['send_submission_notifications'] ) && $params['send_submission_notifications'] && isset( $updated_post['assigned_to'], $updated_post['assigned_to']['id'], $updated_post['assigned_to']['display'] ) ) {
-            $default_comment = sprintf( __( '%s Updates Submitted', 'disciple_tools' ), $params['template_name'] );
+            $default_comment = sprintf( __( '%s Updates Submitted', 'dt-story-sets' ), $params['template_name'] );
             $submission_comment = '@[' . $updated_post['assigned_to']['display'] . '](' . $updated_post['assigned_to']['id'] . ') ' . $default_comment;
             DT_Posts::add_post_comment( $updated_post['post_type'], $updated_post['ID'], $submission_comment, 'comment', [], false );
         }
@@ -436,7 +418,7 @@ class Disciple_Tools_Magic_Links_Template_Starter_Template extends DT_Magic_Url_
             DT_ML_Helper::update_user_logged_in_state();
         }
 
-        //todo: get sorted items using DT_Posts::list_posts()
+        // Get sorted items using DT_Posts::list_posts()
 
         return $this->items;
     }

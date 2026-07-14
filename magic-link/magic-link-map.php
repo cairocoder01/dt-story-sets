@@ -2,21 +2,21 @@
 if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
 /**
- * Loading the Mapbox Mapping system into a Magic Link is a little tricky, so this starter class helps put in place
+ * Loading the Mapbox Mapping system into a Magic Link is a little tricky, so this story-set class helps put in place
  * the key js and css resources needed to do that.
  *
  * @see https://zume.vision/maps/
  * These Zume maps are driven via a magic link from a Disciple Tools system.
  */
-class Disciple_Tools_Plugin_Starter_Template_Magic_Map_App extends DT_Magic_Url_Base
+class Dt_Story_Sets_Magic_Map_App extends DT_Magic_Url_Base
 {
     public $magic = false;
     public $parts = false;
-    public $page_title = 'Starter Map';
-    public $root = 'starter_app';
+    public $page_title = 'Story Set Map';
+    public $root = 'dt-story-sets_app';
     public $type = 'map';
-    public $type_name = 'Starter App Map';
-    public static $token = 'starter_app_map';
+    public $type_name = 'Story Set App Map';
+    public static $token = 'dt-story-sets_app_map';
     public $post_type = 'contacts'; // This can be supplied or not supplied. It does not influence the url verification.
 
     private static $_instance = null;
@@ -96,7 +96,7 @@ class Disciple_Tools_Plugin_Starter_Template_Magic_Map_App extends DT_Magic_Url_
                 'nonce' => wp_create_nonce( 'wp_rest' ),
                 'parts' => $this->parts,
                 'translations' => [
-                    'add' => __( 'Add Magic', 'disciple-tools-plugin-starter-template' ),
+                    'add' => __( 'Add Magic', 'dt-story-sets' ),
                 ],
             ]) ?>][0]
 
@@ -312,4 +312,4 @@ class Disciple_Tools_Plugin_Starter_Template_Magic_Map_App extends DT_Magic_Url_
         );
     }
 }
-Disciple_Tools_Plugin_Starter_Template_Magic_Map_App::instance();
+Dt_Story_Sets_Magic_Map_App::instance();

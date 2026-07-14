@@ -2,23 +2,23 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly
 
 /**
- * Class Disciple_Tools_Plugin_Starter_Template_Menu
+ * Class Dt_Story_Sets_Menu
  */
-class Disciple_Tools_Plugin_Starter_Template_Menu {
+class Dt_Story_Sets_Menu {
 
-    public $token = 'disciple_tools_plugin_starter_template';
-    public $page_title = 'Plugin Starter Template';
+    public $token = 'dt_story_sets';
+    public $page_title = 'Dt Story Sets';
 
     private static $_instance = null;
 
     /**
-     * Disciple_Tools_Plugin_Starter_Template_Menu Instance
+     * Dt_Story_Sets_Menu Instance
      *
-     * Ensures only one instance of Disciple_Tools_Plugin_Starter_Template_Menu is loaded or can be loaded.
+     * Ensures only one instance of Dt_Story_Sets_Menu is loaded or can be loaded.
      *
      * @since 0.1.0
      * @static
-     * @return Disciple_Tools_Plugin_Starter_Template_Menu instance
+     * @return Dt_Story_Sets_Menu instance
      */
     public static function instance() {
         if ( is_null( self::$_instance ) ) {
@@ -37,7 +37,7 @@ class Disciple_Tools_Plugin_Starter_Template_Menu {
 
         add_action( 'admin_menu', array( $this, 'register_menu' ) );
 
-        $this->page_title = __( 'Plugin Starter Template', 'disciple-tools-plugin-starter-template' );
+        $this->page_title = __( 'Dt Story Sets', 'dt-story-sets' );
     } // End __construct()
 
 
@@ -46,7 +46,7 @@ class Disciple_Tools_Plugin_Starter_Template_Menu {
      * @since 0.1
      */
     public function register_menu() {
-        $this->page_title = __( 'Plugin Starter Template', 'disciple-tools-plugin-starter-template' );
+        $this->page_title = __( 'Dt Story Sets', 'dt-story-sets' );
 
         add_submenu_page( 'dt_extensions', $this->page_title, $this->page_title, 'manage_dt', $this->token, [ $this, 'content' ] );
     }
@@ -80,17 +80,17 @@ class Disciple_Tools_Plugin_Starter_Template_Menu {
             <h2 class="nav-tab-wrapper">
                 <a href="<?php echo esc_attr( $link ) . 'general' ?>"
                    class="nav-tab <?php echo esc_html( ( $tab == 'general' || !isset( $tab ) ) ? 'nav-tab-active' : '' ); ?>">General</a>
-                <a href="<?php echo esc_attr( $link ) . 'second' ?>" class="nav-tab <?php echo esc_html( ( $tab == 'second' ) ? 'nav-tab-active' : '' ); ?>">Second</a>
+                <a href="<?php echo esc_attr( $link ) . 'help' ?>" class="nav-tab <?php echo esc_html( ( $tab == 'help' ) ? 'nav-tab-active' : '' ); ?>">Help</a>
             </h2>
 
             <?php
             switch ( $tab ) {
                 case 'general':
-                    $object = new Disciple_Tools_Plugin_Starter_Template_Tab_General();
+                    $object = new Dt_Story_Sets_Tab_General();
                     $object->content();
                     break;
-                case 'second':
-                    $object = new Disciple_Tools_Plugin_Starter_Template_Tab_Second();
+                case 'help':
+                    $object = new Dt_Story_Sets_Tab_Help();
                     $object->content();
                     break;
                 default:
@@ -103,12 +103,12 @@ class Disciple_Tools_Plugin_Starter_Template_Menu {
         <?php
     }
 }
-Disciple_Tools_Plugin_Starter_Template_Menu::instance();
+Dt_Story_Sets_Menu::instance();
 
 /**
- * Class Disciple_Tools_Plugin_Starter_Template_Tab_General
+ * Class Dt_Story_Sets_Tab_General
  */
-class Disciple_Tools_Plugin_Starter_Template_Tab_General {
+class Dt_Story_Sets_Tab_General {
     public function content() {
         ?>
         <div class="wrap">
@@ -137,32 +137,32 @@ class Disciple_Tools_Plugin_Starter_Template_Tab_General {
     }
 
     public function main_column() {
-        $token = Disciple_Tools_Plugin_Starter_Template_Menu::instance()->token;
+        $token = Dt_Story_Sets_Menu::instance()->token;
         $this->process_form_fields( $token );
 
-        $my_plugin_option = get_option( $token . '_my_plugin_option' );
+        $story_sets_settings = get_option( 'dt-story-sets-option' );
         ?>
         <form method="post">
             <?php wp_nonce_field( 'dt_admin_form', 'dt_admin_form_nonce' ) ?>
             <table class="widefat striped">
                 <thead>
                 <tr>
-                    <th>Settings</th>
+                    <th><?php esc_html_e( 'Story Sets Settings', 'dt-story-sets' ) ?></th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td>
-                        My Plugin Option
+                        <?php esc_html_e( 'Story Sets Option', 'dt-story-sets' ) ?>
                     </td>
                     <td>
-                        <input type="text" name="my-plugin-option" placeholder="" value="<?php echo esc_attr( $my_plugin_option ) ?>">
+                        <input type="text" name="dt-story-sets-option" placeholder="" value="<?php echo esc_attr( $story_sets_settings ) ?>">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button class="button">Save</button>
+                        <button class="button"><?php esc_html_e( 'Save', 'dt-story-sets' ) ?></button>
                     </td>
                     <td></td>
                 </tr>
@@ -179,8 +179,8 @@ class Disciple_Tools_Plugin_Starter_Template_Tab_General {
 
             $post_vars = dt_recursive_sanitize_array( $_POST );
 
-            if ( isset( $post_vars['my-plugin-option'] ) ) {
-                update_option( $token . '_my_plugin_option', $post_vars['my-plugin-option'] );
+            if ( isset( $post_vars['dt-story-sets-option'] ) ) {
+                update_option( 'dt-story-sets-option', $post_vars['dt-story-sets-option'] );
             }
         }
     }
@@ -191,13 +191,13 @@ class Disciple_Tools_Plugin_Starter_Template_Tab_General {
         <table class="widefat striped">
             <thead>
                 <tr>
-                    <th>Information</th>
+                    <th><?php esc_html_e( 'Story Sets Information', 'dt-story-sets' ) ?></th>
                 </tr>
             </thead>
             <tbody>
             <tr>
                 <td>
-                    Content
+                    <?php esc_html_e( 'Configure your story sets here.', 'dt-story-sets' ) ?>
                 </td>
             </tr>
             </tbody>
@@ -210,9 +210,9 @@ class Disciple_Tools_Plugin_Starter_Template_Tab_General {
 
 
 /**
- * Class Disciple_Tools_Plugin_Starter_Template_Tab_Second
+ * Class Dt_Story_Sets_Tab_Help
  */
-class Disciple_Tools_Plugin_Starter_Template_Tab_Second {
+class Dt_Story_Sets_Tab_Help {
     public function content() {
         ?>
         <div class="wrap">
@@ -246,13 +246,13 @@ class Disciple_Tools_Plugin_Starter_Template_Tab_Second {
         <table class="widefat striped">
             <thead>
             <tr>
-                <th>Header</th>
+                <th><?php esc_html_e( 'Help', 'dt-story-sets' ) ?></th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <td>
-                    Content
+                    <?php esc_html_e( 'Find more information about Story Sets here.', 'dt-story-sets' ) ?>
                 </td>
             </tr>
             </tbody>
@@ -268,13 +268,13 @@ class Disciple_Tools_Plugin_Starter_Template_Tab_Second {
         <table class="widefat striped">
             <thead>
                 <tr>
-                    <th>Information</th>
+                    <th><?php esc_html_e( 'Resources', 'dt-story-sets' ) ?></th>
                 </tr>
             </thead>
             <tbody>
             <tr>
                 <td>
-                    Content
+                    <?php esc_html_e( 'Documentation, support, etc.', 'dt-story-sets' ) ?>
                 </td>
             </tr>
             </tbody>

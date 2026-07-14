@@ -12,7 +12,7 @@ DB_HOST=${4-localhost}
 WP_VERSION=${5-latest}
 SKIP_DB_CREATE=${6-false}
 
-PLUGIN_DIR=$(pwd ../.)
+PLUGIN_DIR=$(cd .. && pwd)
 TMPDIR=${TMPDIR-/tmp}
 TMPDIR=$(echo $TMPDIR | sed -e "s/\/$//")
 WP_TESTS_DIR=${WP_TESTS_DIR-$TMPDIR/wordpress-tests-lib}
@@ -109,8 +109,12 @@ install_test_suite() {
 	if [ ! -d $WP_TESTS_DIR ]; then
 		# set up testing suite
 		mkdir -p $WP_TESTS_DIR
-		svn co --quiet https://develop.svn.wordpress.org/${WP_TESTS_TAG}/tests/phpunit/includes/ $WP_TESTS_DIR/includes
-		svn co --quiet https://develop.svn.wordpress.org/${WP_TESTS_TAG}/tests/phpunit/data/ $WP_TESTS_DIR/data
+		# use git instead of svn
+		TAG=${WP_TESTS_TAG#*/}
+		git clone --depth 1 --branch ${TAG} https://github.com/WordPress/wordpress-develop.git /tmp/wordpress-develop
+		cp -r /tmp/wordpress-develop/tests/phpunit/includes/ $WP_TESTS_DIR/includes
+		cp -r /tmp/wordpress-develop/tests/phpunit/data/ $WP_TESTS_DIR/data
+		rm -rf /tmp/wordpress-develop
 	fi
 
 	if [ ! -f wp-tests-config.php ]; then
@@ -159,7 +163,7 @@ install_theme() {
 }
 
 install_plugin() {
-    ln -sf $PLUGIN_DIR $WP_PLUGINS_DIR/.
+    ln -sf $PLUGIN_DIR $WP_PLUGINS_DIR/dt-story-sets
 }
 
 install_wp

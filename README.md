@@ -1,60 +1,35 @@
-![Build Status](https://github.com/DiscipleTools/disciple-tools-plugin-starter-template/actions/workflows/ci.yml/badge.svg?branch=master)
-## Dev notes, delete me:
-This is a starter plugin to jumpstart your work with Disciple.Tools.
-Click the "Use this template" button above.
-See instructions for refactoring and getting started in the [wiki](https://github.com/DiscipleTools/disciple-tools-plugin-starter-template/wiki)
-See instructions for creating releases and publishing your plugin: [wiki](https://github.com/DiscipleTools/disciple-tools-plugin-starter-template/wiki)
-In order to display the banner correctly on the Disciple.Tools Community Plugins Site, don't change the 'Plugin Banner' text on line 12; only the URL.
+![Build Status](https://github.com/cairocoder01/dt-story-sets/actions/workflows/ci.yml/badge.svg?branch=master)
 
-## readme format:
+![Plugin Banner](https://raw.githubusercontent.com/cairocoder01/dt-story-sets/master/documentation/banner.png)
 
-![Plugin Banner](https://raw.githubusercontent.com/DiscipleTools/disciple-tools-plugin-starter-template/master/documentation/banner.png)
+# Disciple.Tools - Story Sets
 
-# Disciple.Tools - Plugin Starter Template
-
-Description Description Description Description Description Description Description
-Description Description Description Description Description Description Description
+The **Disciple.Tools - Story Sets** plugin allows users to create, manage, and track "story sets" within the Disciple.Tools system. This plugin enhances the Disciple.Tools experience by adding custom functionality for organizing and monitoring story-based interactions and metrics.
 
 ## Purpose
+This plugin enables Disciple.Tools users to structure their story-based engagement activities, providing a dedicated space to manage these sets and view associated metrics.
 
-Purpose purpose purpose purpose purpose purpose purpose purpose purpose purpose purpose
-Purpose purpose purpose purpose purpose purpose purpose purpose purpose purpose purpose
-
-Purpose purpose purpose purpose purpose purpose purpose purpose purpose purpose purpose
-Purpose purpose purpose purpose purpose purpose purpose purpose purpose purpose purpose
-
-## Usage
-
-#### Will Do
-
-- Item
-- Item
-- Item
-
-#### Will Not Do
-
-- Item
-- Item
+## Key Features
+- **Story Sets Management**: Define and manage story sets using custom post types.
+- **Metrics Tracking**: View insights and metrics related to your story sets.
+- **Integration**: Works seamlessly within the Disciple.Tools ecosystem, leveraging its REST API and UI components.
+- **Magic Links**: Utilize magic links for secure and easy user access to dt-story-sets related data.
 
 ## Requirements
+- WordPress installed.
+- **Disciple.Tools Theme** must be active.
 
-- Disciple.Tools Theme installed on a Wordpress Server
-
-## Installing
-
-- Install as a standard Disciple.Tools/Wordpress plugin in the system Admin/Plugins area.
-- Requires the user role of Administrator.
+## Installation
+1. Install as a standard WordPress plugin in your system's **Plugins** area.
+2. Ensure you have Administrator user role permissions.
+3. Activate the plugin.
 
 ## Contribution
+Contributions are welcome.
+- Report issues and bugs in the [Issues](https://github.com/cairocoder01/dt-story-sets/issues) section.
+- Present ideas in the [Discussions](https://github.com/cairocoder01/dt-story-sets/discussions) section.
+- Submit code contributions via [Pull Requests](https://github.com/cairocoder01/dt-story-sets/pulls).
+- For details, see the [contribution guidelines](https://github.com/cairocoder01/dt-story-sets/blob/master/CONTRIBUTING.md).
 
-Contributions welcome. You can report issues and bugs in the
-[Issues](https://github.com/DiscipleTools/disciple-tools-plugin-starter-template/issues) section of the repo. You can present ideas
-in the [Discussions](https://github.com/DiscipleTools/disciple-tools-plugin-starter-template/discussions) section of the repo. And
-code contributions are welcome using the [Pull Request](https://github.com/DiscipleTools/disciple-tools-plugin-starter-template/pulls)
-system for git. For a more details on contribution see the
-[contribution guidelines](https://github.com/DiscipleTools/disciple-tools-plugin-starter-template/blob/master/CONTRIBUTING.md).
-
-
-## Screenshots
-
-![screenshot](documentation/community/starter-banners/banner-blue-green.png)
+---
+*For more information, visit the [Disciple.Tools Community](https://disciple.tools).*

@@ -1,4 +1,13 @@
 {
+    "name": "cairocoder01/dt-story-sets",
+    "description": "Disciple.Tools Story Sets allows users to create and manage story sets within Disciple.Tools.",
+    "type": "wordpress-plugin",
+    "authors": [
+        {
+            "name": "cairocoder01",
+            "email": "cairocoder01@example.com"
+        }
+    ],
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "1.*",
         "wp-coding-standards/wpcs": "3.1.*"

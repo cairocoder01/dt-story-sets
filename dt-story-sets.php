@@ -1,0 +1,319 @@
+<?php
+/**
+ * Plugin Name: Disciple.Tools - Story Sets
+ * Plugin URI: https://github.com/cairocoder01/dt-story-sets
+ * Description: Disciple.Tools Story Sets allows users to create and manage story sets within Disciple.Tools.
+ * Text Domain: dt-story-sets
+ * Domain Path: /languages
+ * Version:  0.1
+ * Author URI: https://github.com/DiscipleTools
+ * GitHub Plugin URI: https://github.com/cairocoder01/dt-story-sets
+ * Requires at least: 4.7.0
+ * (Requires 4.7+ because of the integration of the REST API at 4.7 and the security requirements of this milestone version.)
+ * Tested up to: 5.6
+ *
+ * @package Disciple_Tools
+ * @link    https://github.com/DiscipleTools
+ * @license GPL-2.0 or later
+ *          https://www.gnu.org/licenses/gpl-2.0.html
+ */
+
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
+
+/**
+ * Gets the instance of the `Dt_Story_Sets` class.
+ *
+ * @since  0.1
+ * @access public
+ * @return object|bool
+ */
+function dt_story_sets() {
+    $dt_story_sets_required_dt_theme_version = '1.19';
+    $wp_theme = wp_get_theme();
+    $version = $wp_theme->version;
+
+    /*
+     * Check if the Disciple.Tools theme is loaded and is the latest required version
+     */
+    $is_theme_dt = class_exists( 'Disciple_Tools' );
+    if ( $is_theme_dt && version_compare( $version, $dt_story_sets_required_dt_theme_version, '<' ) ) {
+        add_action( 'admin_notices', 'dt_story_sets_hook_admin_notice' );
+        add_action( 'wp_ajax_dismissed_notice_handler', 'dt_hook_ajax_notice_handler' );
+        return false;
+    }
+    if ( !$is_theme_dt ){
+        return false;
+    }
+    /**
+     * Load useful function from the theme
+     */
+    if ( !defined( 'DT_FUNCTIONS_READY' ) ){
+        require_once get_template_directory() . '/dt-core/global-functions.php';
+    }
+
+    return Dt_Story_Sets::instance();
+}
+add_action( 'after_setup_theme', 'dt_story_sets', 20 );
+
+//register the D.T Plugin
+add_filter( 'dt_plugins', function ( $plugins ){
+    $plugin_data = get_file_data( __FILE__, [ 'Version' => 'Version', 'Plugin Name' => 'Plugin Name' ], false );
+    $plugins['dt-story-sets'] = [
+        'plugin_url' => trailingslashit( plugin_dir_url( __FILE__ ) ),
+        'version' => $plugin_data['Version'] ?? null,
+        'name' => $plugin_data['Plugin Name'] ?? null,
+    ];
+    return $plugins;
+});
+
+/**
+ * Singleton class for setting up the plugin.
+ *
+ * @since  0.1
+ * @access public
+ */
+class Dt_Story_Sets {
+
+    private static $_instance = null;
+    public static function instance() {
+        if ( is_null( self::$_instance ) ) {
+            self::$_instance = new self();
+        }
+        return self::$_instance;
+    }
+
+    private function __construct() {
+        $is_rest = dt_is_rest();
+        if ( $is_rest && strpos( dt_get_url_path(), 'dt-story-sets' ) !== false ) {
+            require_once( 'rest-api/rest-api.php' ); // adds story-set rest api class
+        }
+
+        require_once( 'post-type/loader.php' ); // add story-set post type extension to Disciple.Tools system
+
+        require_once( 'site-link/custom-site-to-site-links.php' ); // add site to site link class and capabilities
+
+        if ( strpos( dt_get_url_path(), 'metrics' ) !== false || ( $is_rest && strpos( dt_get_url_path(), 'dt-story-sets-metrics' ) !== false ) ){
+            require_once( 'charts/charts-loader.php' );  // add custom charts to the metrics area
+        }
+
+        require_once( 'tile/custom-tile.php' ); // add custom tile
+        if ( 'settings' === dt_get_url_path() && ! $is_rest ) {
+            require_once( 'tile/profile-settings-tile.php' ); // add custom settings page tile
+        }
+
+        require_once( 'magic-link/post-type-magic-link/magic-link-post-type.php' );
+        require_once( 'magic-link/magic-link-user-app.php' );
+        require_once( 'magic-link/magic-link-login-user-app.php' );
+        require_once( 'magic-link/magic-link-non-object.php' );
+        require_once( 'magic-link/magic-link-map.php' );
+        require_once( 'magic-link/templates/dt-story-sets-template.php' );
+//        require_once( 'magic-link/magic-link-home.php' );
+
+        if ( is_admin() ) {
+            require_once( 'admin/admin-menu-and-tabs.php' ); // adds story-set admin page and section for plugin
+        }
+
+        $this->i18n();
+
+        if ( is_admin() ) { // adds links to the plugin description area in the plugin admin list.
+            add_filter( 'plugin_row_meta', [ $this, 'plugin_description_links' ], 10, 4 );
+        }
+
+        require_once( 'workflows/workflows.php' );
+    }
+
+    /**
+     * Filters the array of row meta for each/specific plugin in the Plugins list table.
+     * Appends additional links below each/specific plugin on the plugins page.
+     */
+    public function plugin_description_links( $links_array, $plugin_file_name, $plugin_data, $status ) {
+        if ( strpos( $plugin_file_name, basename( __FILE__ ) ) ) {
+            // You can still use `array_unshift()` to add links at the beginning.
+
+            $links_array[] = '<a href="https://disciple.tools">Disciple.Tools Community</a>';
+        }
+
+        return $links_array;
+    }
+
+    /**
+     * Method that runs only when the plugin is activated.
+     *
+     * @since  0.1
+     * @access public
+     * @return void
+     */
+    public static function activation() {
+        // add elements here that need to fire on activation
+        $old_option_name = 'dt_story_sets_story_sets_settings';
+        $new_option_name = 'dt-story-sets-option';
+
+        $old_value = get_option( $old_option_name );
+        if ( false !== $old_value ) {
+            update_option( $new_option_name, $old_value );
+            delete_option( $old_option_name );
+        }
+    }
+
+    /**
+     * Method that runs only when the plugin is deactivated.
+     *
+     * @since  0.1
+     * @access public
+     * @return void
+     */
+    public static function deactivation() {
+        // add functions here that need to happen on deactivation
+        delete_option( 'dismissed-dt-story-sets' );
+    }
+
+    /**
+     * Loads the translation files.
+     *
+     * @since  0.1
+     * @access public
+     * @return void
+     */
+    public function i18n() {
+        $domain = 'dt-story-sets';
+        load_plugin_textdomain( $domain, false, trailingslashit( dirname( plugin_basename( __FILE__ ) ) ). 'languages' );
+    }
+
+    /**
+     * Magic method to output a string if trying to use the object as a string.
+     *
+     * @since  0.1
+     * @access public
+     * @return string
+     */
+    public function __toString() {
+        return 'dt-story-sets';
+    }
+
+    /**
+     * Magic method to keep the object from being cloned.
+     *
+     * @since  0.1
+     * @access public
+     * @return void
+     */
+    public function __clone() {
+        _doing_it_wrong( __FUNCTION__, 'Whoah, partner!', '0.1' );
+    }
+
+    /**
+     * Magic method to keep the object from being unserialized.
+     *
+     * @since  0.1
+     * @access public
+     * @return void
+     */
+    public function __wakeup() {
+        _doing_it_wrong( __FUNCTION__, 'Whoah, partner!', '0.1' );
+    }
+
+    /**
+     * Magic method to prevent a fatal error when calling a method that doesn't exist.
+     *
+     * @param string $method
+     * @param array $args
+     * @return null
+     * @since  0.1
+     * @access public
+     */
+    public function __call( $method = '', $args = array() ) {
+        _doing_it_wrong( 'dt_story_sets::' . esc_html( $method ), 'Method does not exist.', '0.1' );
+        unset( $method, $args );
+        return null;
+    }
+}
+
+
+// Register activation hook.
+register_activation_hook( __FILE__, [ 'Dt_Story_Sets', 'activation' ] );
+register_deactivation_hook( __FILE__, [ 'Dt_Story_Sets', 'deactivation' ] );
+
+
+if ( ! function_exists( 'dt_story_sets_hook_admin_notice' ) ) {
+    function dt_story_sets_hook_admin_notice() {
+        global $dt_story_sets_required_dt_theme_version;
+        $wp_theme = wp_get_theme();
+        $current_version = $wp_theme->version;
+        $message = "'Disciple.Tools - Story Sets' plugin requires 'Disciple.Tools' theme to work. Please activate 'Disciple.Tools' theme or make sure it is latest version.";
+        if ( $wp_theme->get_template() === 'disciple-tools-theme' ){
+            $message .= ' ' . sprintf( esc_html( 'Current Disciple.Tools version: %1$s, required version: %2$s' ), esc_html( $current_version ), esc_html( $dt_story_sets_required_dt_theme_version ) );
+        }
+        // Check if it's been dismissed...
+        if ( ! get_option( 'dismissed-dt-story-sets', false ) ) { ?>
+            <div class="notice notice-error notice-dt-story-sets is-dismissible" data-notice="dt-story-sets">
+                <p><?php echo esc_html( $message );?></p>
+            </div>
+            <script>
+                jQuery(function($) {
+                    $( document ).on( 'click', '.notice-dt-story-sets .notice-dismiss', function () {
+                        $.ajax( ajaxurl, {
+                            type: 'POST',
+                            data: {
+                                action: 'dismissed_notice_handler',
+                                type: 'dt-story-sets',
+                                security: '<?php echo esc_html( wp_create_nonce( 'wp_rest_dismiss' ) ) ?>'
+                            }
+                        })
+                    });
+                });
+            </script>
+        <?php }
+    }
+}
+
+/**
+ * AJAX handler to store the state of dismissible notices.
+ */
+if ( !function_exists( 'dt_hook_ajax_notice_handler' ) ){
+    function dt_hook_ajax_notice_handler(){
+        check_ajax_referer( 'wp_rest_dismiss', 'security' );
+        if ( isset( $_POST['type'] ) ){
+            $type = sanitize_text_field( wp_unslash( $_POST['type'] ) );
+            update_option( 'dismissed-' . $type, true );
+        }
+    }
+}
+
+/**
+ * Plugin Releases and updates
+ *
+ * This section runs the remote plugin updating service, so you can issue distributed updates to your plugin
+ *
+ * @note See the instructions for version updating to understand the steps involved.
+ * @link https://github.com/cairocoder01/dt-story-sets/wiki/Configuring-Remote-Updating-System
+ */
+/**
+ * Check for plugin updates even when the active theme is not Disciple.Tools
+ *
+ * Below is the publicly hosted .json file that carries the version information. This file can be hosted
+ * anywhere as long as it is publicly accessible. You can download the version file listed below and use it as
+ * a template.
+ * Also, see the instructions for version updating to understand the steps involved.
+ * @see https://github.com/cairocoder01/dt-story-sets/wiki/Configuring-Remote-Updating-System
+ */
+add_action( 'plugins_loaded', function (){
+    if ( ( is_admin() || wp_doing_cron() ) && !( is_multisite() && class_exists( 'DT_Multisite' ) ) ){
+        // Check for plugin updates
+        if ( ! class_exists( 'Puc_v4_Factory' ) ) {
+            if ( file_exists( get_template_directory() . '/dt-core/libraries/plugin-update-checker/plugin-update-checker.php' ) ){
+                require( get_template_directory() . '/dt-core/libraries/plugin-update-checker/plugin-update-checker.php' );
+            }
+        }
+        if ( class_exists( 'Puc_v4_Factory' ) ){
+            Puc_v4_Factory::buildUpdateChecker(
+                'https://raw.githubusercontent.com/cairocoder01/dt-story-sets/master/version-control.json',
+                __FILE__,
+                'dt-story-sets'
+            );
+
+        }
+    }
+} );

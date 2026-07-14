@@ -1,20 +1,21 @@
 <?php
 if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
-/**
- * @todo replace all occurrences of the string "template" with a string of your choice
- * @todo also rename in charts-loader.php
+
+/*
+ * Dt Story Sets Overview Chart
  */
 
-class Disciple_Tools_Plugin_Starter_Template_Chart_Template extends DT_Metrics_Chart_Base
-{
-    public $base_slug = 'disciple-tools-plugin-starter-template-metrics'; // lowercase
-    public $base_title = 'Plugin Starter Template Metrics';
 
-    public $title = 'Template';
-    public $slug = 'template'; // lowercase
+class Dt_Story_Sets_Overview_Chart extends DT_Metrics_Chart_Base
+{
+    public $base_slug = 'dt-story-sets-metrics'; // lowercase
+    public $base_title = 'Dt Story Sets Metrics';
+
+    public $title = 'Story Sets Overview';
+    public $slug = 'overview'; // lowercase
     public $js_object_name = 'wp_js_object'; // This object will be loaded into the metrics.js file by the wp_localize_script.
-    public $js_file_name = 'one-page-chart-template.js'; // should be full file name plus extension
+    public $js_file_name = 'dt-story-sets-overview-chart.js'; // should be full file name plus extension
     public $permissions = [ 'dt_all_access_contacts', 'view_project_metrics' ];
 
     public function __construct() {
@@ -65,7 +66,7 @@ class Disciple_Tools_Plugin_Starter_Template_Chart_Template extends DT_Metrics_C
                 ],
                 'translations' => [
                     'title' => $this->title,
-                    'Sample API Call' => __( 'Sample API Call', 'disciple-tools-plugin-starter-template' )
+                    'Sample API Call' => __( 'Sample API Call', 'dt-story-sets' )
                 ]
             ]
         );

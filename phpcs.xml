@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ruleset name="PHP_CodeSniffer">
-  <description>The coding standard for disciple-tools theme</description>
+  <description>The coding standard for dt-story-sets</description>
 
   <!-- This should be the same as for disciple-tools plugin -->
 

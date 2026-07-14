@@ -1,7 +1,7 @@
 <?php
 if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
-class Disciple_Tools_Plugin_Starter_Template_Charts
+class Dt_Story_Sets_Charts
 {
     private static $_instance = null;
     public static function instance(){
@@ -13,12 +13,13 @@ class Disciple_Tools_Plugin_Starter_Template_Charts
 
     public function __construct(){
 
-        require_once( 'one-page-chart-template.php' );
-        new Disciple_Tools_Plugin_Starter_Template_Chart_Template();
+        require_once( 'dt-story-sets-overview-chart.php' );
+        new Dt_Story_Sets_Overview_Chart();
 
         /**
-         * @todo add other charts like the pattern above here
+         * Add additional custom charts for dt-story-sets here by requiring
+         * the new chart class and initializing it using the pattern above.
          */
     } // End __construct
 }
-Disciple_Tools_Plugin_Starter_Template_Charts::instance();
+Dt_Story_Sets_Charts::instance();

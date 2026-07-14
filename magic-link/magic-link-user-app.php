@@ -3,14 +3,14 @@ if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
 
 /**
- * Class Disciple_Tools_Plugin_Starter_Template_Magic_User_App
+ * Class Dt_Story_Sets_Magic_User_App
  */
-class Disciple_Tools_Plugin_Starter_Template_Magic_User_App extends DT_Magic_Url_Base {
+class Dt_Story_Sets_Magic_User_App extends DT_Magic_Url_Base {
 
-    public $page_title = 'Starter - Magic Links - User App';
+    public $page_title = 'Story Set - Magic Links - User App';
     public $page_description = 'User App - Magic Links.';
-    public $root = 'starter_magic_app'; // @todo define the root of the url {yoursite}/root/type/key/action
-    public $type = 'starter_user_app'; // @todo define the type
+    public $root = 'dt-story-sets_magic_app';
+    public $type = 'dt-story-sets_user_app';
     public $post_type = 'user';
     private $meta_key = '';
     public $show_bulk_send = false;
@@ -86,12 +86,12 @@ class Disciple_Tools_Plugin_Starter_Template_Magic_User_App extends DT_Magic_Url
     }
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
-        // @todo add or remove js files with this filter
+        // add or remove js files with this filter
         return $allowed_js;
     }
 
     public function dt_magic_url_base_allowed_css( $allowed_css ) {
-        // @todo add or remove js files with this filter
+        // add or remove js files with this filter
         return $allowed_css;
     }
 
@@ -123,7 +123,6 @@ class Disciple_Tools_Plugin_Starter_Template_Magic_User_App extends DT_Magic_Url
      * Writes custom styles to header
      *
      * @see DT_Magic_Url_Base()->header_style() for default state
-     * @todo remove if not needed
      */
     public function header_style(){
         ?>
@@ -140,7 +139,6 @@ class Disciple_Tools_Plugin_Starter_Template_Magic_User_App extends DT_Magic_Url
      * Writes javascript to the header
      *
      * @see DT_Magic_Url_Base()->header_javascript() for default state
-     * @todo remove if not needed
      */
     public function header_javascript(){
         ?>
@@ -154,7 +152,6 @@ class Disciple_Tools_Plugin_Starter_Template_Magic_User_App extends DT_Magic_Url
      * Writes javascript to the footer
      *
      * @see DT_Magic_Url_Base()->footer_javascript() for default state
-     * @todo remove if not needed
      */
     public function footer_javascript(){
         ?>
@@ -167,7 +164,7 @@ class Disciple_Tools_Plugin_Starter_Template_Magic_User_App extends DT_Magic_Url
                 'nonce' => wp_create_nonce( 'wp_rest' ),
                 'parts' => $this->parts,
                 'translations' => [
-                    'add' => __( 'Add Magic', 'disciple-tools-plugin-starter-template' ),
+                    'add' => __( 'Add Magic', 'dt-story-sets' ),
                 ],
             ]) ?>][0]
 
@@ -320,12 +317,12 @@ class Disciple_Tools_Plugin_Starter_Template_Magic_User_App extends DT_Magic_Url
 
         $args = [];
         if ( !is_user_logged_in() ){
-            $global_name = apply_filters( 'dt_magic_link_global_name', __( 'Magic Link', 'disciple-tools-plugin-starter-template' ) );
-            $args['comment_author'] = sprintf( __( '%s Submission', 'disciple-tools-plugin-starter-template' ), $global_name );
+            $global_name = apply_filters( 'dt_magic_link_global_name', __( 'Magic Link', 'dt-story-sets' ) );
+            $args['comment_author'] = sprintf( __( '%s Submission', 'dt-story-sets' ), $global_name );
             wp_set_current_user( 0 );
             $current_user = wp_get_current_user();
             $current_user->add_cap( 'magic_link' );
-            $current_user->display_name = sprintf( __( '%s Submission', 'disciple-tools-plugin-starter-template' ), $global_name );
+            $current_user->display_name = sprintf( __( '%s Submission', 'dt-story-sets' ), $global_name );
         }
 
         if ( isset( $params['update']['comment'] ) && !empty( $params['update']['comment'] ) ){
@@ -353,10 +350,7 @@ class Disciple_Tools_Plugin_Starter_Template_Magic_User_App extends DT_Magic_Url
 
         $data = [];
 
-        $data[] = [ 'name' => 'List item' ]; // @todo remove example
-        $data[] = [ 'name' => 'List item' ]; // @todo remove example
-
         return $data;
     }
 }
-Disciple_Tools_Plugin_Starter_Template_Magic_User_App::instance();
+Dt_Story_Sets_Magic_User_App::instance();

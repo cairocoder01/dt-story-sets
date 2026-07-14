@@ -4,8 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly
  * Configures the site link system for the network reporting
  */
 
-class Disciple_Tools_Plugin_Starter_Template_Site_Links {
-    public $type = 'disciple_tools_plugin_starter_template';
+class Dt_Story_Sets_Site_Links {
+    public $type = 'dt_story_sets';
 
     private static $_instance = null;
     public static function instance() {
@@ -27,14 +27,15 @@ class Disciple_Tools_Plugin_Starter_Template_Site_Links {
         if ( $this->type === $args['connection_type'] ) {
             $args['capabilities'][] = 'create_' . $this->type;
             $args['capabilities'][] = 'update_any_' . $this->type;
-            // @todo add other capabilities here
+            $args['capabilities'][] = 'view_any_' . $this->type;
+            $args['capabilities'][] = 'delete_any_' . $this->type;
         }
         return $args;
     }
 
     public function site_link_type( $type ) {
-        $type[$this->type] = __( 'Plugin Starter Template' );
+        $type[$this->type] = __( 'Dt Story Sets' );
         return $type;
     }
 }
-Disciple_Tools_Plugin_Starter_Template_Site_Links::instance();
+Dt_Story_Sets_Site_Links::instance();
